@@ -1,0 +1,19 @@
+Package: mountainbikeR
+Title: A package for mountainbikers to access and visualise ride data through
+    strava API.
+Version: 0.0.0.0001
+Authors@R: 
+    person(given = "Wei",
+           family = "Long",
+           role = c("aut", "cre"),
+           email = "longwei66@gmail.com")
+Description: This package is dedicated to mountainbikers & data lovers. It uses
+    strava API do get rides data and visualise efforts. 
+License: GPL3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+Require:
+    data.table
+Suggests: 
+    testthat
