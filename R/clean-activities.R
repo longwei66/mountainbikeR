@@ -3,7 +3,7 @@
 #' a function to clean strava actities
 #'
 #'
-#' @param activities json activities returnd by strava
+#' @param activities json activities returnd by getActivities
 #' @param myGearList
 #'
 #' @return
@@ -15,9 +15,6 @@
 #' @examples
 cleanActivities <- function(activities, myGearList){
 
-    ## Convert json file to data.frame
-    ## --------------------------------
-    activities <- jsonlite::fromJSON(activities)
 
     if(!is.null(activities$message)) {
         if (activities$message == "Rate Limit Exceeded"){

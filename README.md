@@ -6,10 +6,14 @@ explore and visualise their rides data.
 ## Objective
 
 
+# Log - Code
+
+## Import functions from previous project
+
+- `connect2strava` a function to connect to strave api with key an secret
 
 
-
-# Log
+# Log - Setup Devops
 
 ## Create package structure
 
@@ -49,11 +53,11 @@ usethis::use_testthat()
 ```
 
 
-
 ## Make the package
 
 ```
 devtools::document()
 devtools::test()
+devtools::check()
 devtools::load_all()
 ```

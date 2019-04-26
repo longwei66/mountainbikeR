@@ -7,7 +7,7 @@
 cleanActivities(activities, myGearList)
 }
 \arguments{
-\item{activities}{json activities returnd by strava}
+\item{activities}{json activities returnd by getActivities}
 
 \item{myGearList}{}
 }
