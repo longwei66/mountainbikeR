@@ -4,10 +4,17 @@
 \alias{getActivities}
 \title{getActivities}
 \usage{
-getActivities(token = NULL)
+getActivities(token = NULL, activities.per.page = 200,
+  page.number = 1, after.date = NULL, before.date = NULL)
 }
 \arguments{
 \item{token}{the strava identification token}
+
+\item{activities.per.page}{max number of item to return (must be 200 max)}
+
+\item{after.date}{return activities after date as YYYY-MM-DD}
+
+\item{before.date}{return activities before date as YYYY-MM-DD}
 }
 \value{
 the activities database as json
