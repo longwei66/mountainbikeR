@@ -10,7 +10,10 @@ explore and visualise their rides data.
 
 ## Import functions from previous project
 
-- `connect2strava` a function to connect to strave api with key an secret
+- `connect2strava` to connect to strave api with key an secret
+- `getActivities` to get all your activities in raw format
+- `getGear` to get the list of your gears
+- `makeStreamPath` to convert google path to geo coding path
 
 
 # Log - Setup Devops
