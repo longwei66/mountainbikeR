@@ -10,6 +10,7 @@
 #' @return the activities database as json
 #' @import httr
 #' @import jsonlite
+#' @import data.table
 #' @export
 #'
 #' @examples
