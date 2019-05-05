@@ -14,9 +14,9 @@ explore and visualise their rides data.
 - `listActivities` to get all your activities in one table
 - `getGear` to get the list of your gears
 - `cleanActitiesList` to clean list of activities
-- `makeStreamPath` to build the API url path for streams
 - `decodePolyline` a code to decode polyline (google format for geo path)
 - `getActivity`to get all the details of one specific activity
+- `getStreams`to get streams from an activity
 
 ## Add datasets
 
