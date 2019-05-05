@@ -11,9 +11,16 @@ explore and visualise their rides data.
 ## Import functions from previous project
 
 - `connect2strava` to connect to strave api with key an secret
-- `getActivities` to get all your activities in raw format
+- `getActivitiesList` to get all your activities in one table
 - `getGear` to get the list of your gears
-- `makeStreamPath` to convert google path to geo coding path
+- `cleanActitiesList` to clean list of activities
+- `makeStreamPath` to build the API url path for streams
+- `decodePolyline` a code to decode polyline (google format for geo path)
+
+## Add datasets
+
+- `stream_type`contains types of streams
+- `workout_types` contains types of workout
 
 
 # Log - Setup Devops

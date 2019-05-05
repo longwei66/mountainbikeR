@@ -9,9 +9,13 @@
 #' @import httr
 #' @import jsonlite
 #' @import data.table
+#' @import dplyr
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' getGear(token = myToken, gear.id = myGearId)
+#' }
 getGear <- function(token = NULL, gear.id = NULL){
 
     ## test input
@@ -26,7 +30,7 @@ getGear <- function(token = NULL, gear.id = NULL){
     )
     gear <- httr::content(gear, "text")
 
-    gear.data <- as.data.table(jsonlite::fromJSON(gear))
+    gear.data <- as.data.table(jsonlite::fromJSON(gear)) %>% rename(gear_name = name, gear_id = id)
 
     return(gear.data)
 }

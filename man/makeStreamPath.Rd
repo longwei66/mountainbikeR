@@ -15,5 +15,10 @@ makeStreamPath(activity.id = NULL, stream.type = NULL)
 the full API path
 }
 \description{
-build the API url path
+build the API url path for streams
+}
+\examples{
+\dontrun{
+makeStreamPath(activity.id = activity.id, stream.type = streams.type)
+}
 }

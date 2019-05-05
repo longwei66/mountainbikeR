@@ -1,6 +1,9 @@
-#' getActivities
+#' listActivities
 #'
-#' Get all activities from strava api
+#' List all activities from strava api. Returns the activities of an athlete
+#' for a specific identifier. Requires activity:read.
+#' Only Me activities will be filtered out unless requested by a token
+#' with activity:read_all.
 #'
 #' @param token the strava identification token
 #' @param activities.per.page max number of item to return (must be 200 max)
@@ -12,9 +15,14 @@
 #' @import jsonlite
 #' @import data.table
 #' @export
+#' @source
+#' \url{https://developers.strava.com/docs/reference/#api-Activities-getLoggedInAthleteActivities}
 #'
 #' @examples
-getActivities <- function(token = NULL,
+#' \dontrun{
+#' getActivities(token = myToken, activities.per.page = 200, page.number = 2)
+#' }
+listActivities <- function(token = NULL,
                           activities.per.page = 200,
                           page.number = 1,
                           after.date = NULL,

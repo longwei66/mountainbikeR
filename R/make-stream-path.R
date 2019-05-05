@@ -1,6 +1,6 @@
 #' makeStreamPath
 #'
-#' build the API url path
+#' build the API url path for streams
 #'
 #' @param activity.id the id of the activity
 #' @param stream.type the type of the stream
@@ -9,6 +9,9 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' makeStreamPath(activity.id = activity.id, stream.type = streams.type)
+#' }
 makeStreamPath <- function(activity.id = NULL, stream.type = NULL){
 
     if(is.null(activity.id)){ stop("activity.id cannot be NULL")}

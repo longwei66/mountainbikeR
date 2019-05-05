@@ -1,17 +1,20 @@
-#' cleanActivities
+#' cleanActivitiesList
 #'
 #' a function to clean strava actities
 #'
 #' @param activities json activities returnd by getActivities
 #'
-#' @return
+#' @return activities of the page
 #' @export
 #' @import dplyr
 #' @import data.table
 #'
 #'
 #' @examples
-cleanActivities <- function(activities = NULL){
+#' \dontrun{
+#' cleanActivities(my_activities)
+#' }
+cleanActivitiesList <- function(activities = NULL){
 
 
     ## test input
@@ -22,7 +25,7 @@ cleanActivities <- function(activities = NULL){
     ## deal with nested data.frame start_latlng
     start_latlng <- data.table::rbindlist(lapply(activities$start_latlng, as.data.frame.list), fill = TRUE)
     end_latlng <- data.table::rbindlist(lapply(activities$end_latlng, as.data.frame.list), fill = TRUE)
-    map <- data.table::rbindlist(lapply(activities$map, as.data.frame.list), fill = TRUE)
+    map <- activities$map$summary_polyline
 
     ## Remove non necessary features
     activities <- dplyr::select(activities,
@@ -79,22 +82,13 @@ cleanActivities <- function(activities = NULL){
     activities <- dplyr::select(activities, -start_latitude, -start_longitude)
 
 
-    ## Get names of workout types
-    ## Run / Ride supported
+    ## Add workout types
     activities[ , workout_type_id := workout_type]
     activities <- dplyr::select(activities, -workout_type)
 
-    activities[ , workout_type := factor(levels = c("Ride.Relax","Ride.Workout","Ride.Race",
-                                                    "Run.Relax","Run.Workout","Run.Long.Run","Run.Race",
-                                                    NA))]
-    activities[ workout_type_id == 10, workout_type := "Ride.Relax"]
-    activities[ workout_type_id == 11, workout_type := "Ride.Race"]
-    activities[ workout_type_id == 12, workout_type := "Ride.Workout"]
-    activities[ workout_type_id == 0, workout_type := "Run.Relax"]
-    activities[ workout_type_id == 1, workout_type := "Run.Race"]
-    activities[ workout_type_id == 2, workout_type := "Run.Long.Run"]
-    activities[ workout_type_id == 3, workout_type := "Run.Workout"]
-    activities[ is.na(workout_type_id), workout_type := NA]
+    activities <- merge(x = activities, y = mountainbikeR::workout_types,
+                           by.x = "workout_type_id", by.y = "workout_type_id", all.x = TRUE)
+
 
     ## Add gear name
     #activities[ , gear.name := unlist(lapply(activities$gear.id, getGearName, myGearList))]
@@ -103,6 +97,8 @@ cleanActivities <- function(activities = NULL){
     activities[ , start_date := strptime(x = start_date, format = "%Y-%m-%dT%H:%M:%SZ")]
     activities[ , start_date_local := strptime(x = start_date_local, format = "%Y-%m-%dT%H:%M:%SZ")]
 
+    ## Add Map
+    activities[ , map := map]
 
     return(activities)
 

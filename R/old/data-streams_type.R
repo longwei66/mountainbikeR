@@ -9,4 +9,4 @@
 #'   \item{units}{Units of the stream}
 #' }
 #' @source \url{https://developers.strava.com}
-"streams_type"
+"stream_types"

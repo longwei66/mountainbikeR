@@ -17,3 +17,8 @@ the gear data as json
 \description{
 Get all gear detail from strava api from gears id
 }
+\examples{
+\dontrun{
+getGear(token = myToken, gear.id = myGearId)
+}
+}
