@@ -62,6 +62,7 @@ listActivities <- function(token = NULL,
                     httr::http_status(strava.activities)$message))
         strava.activities <- httr::content(strava.activities, "text")
         strava.activities.json <- jsonlite::fromJSON(strava.activities)
+        return(strava.activities.json)
     }
 
 }
