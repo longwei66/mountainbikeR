@@ -6,11 +6,20 @@
 #' @param token the strava token
 #' @param activity_id the strava id of the activity
 #' @param include_all_efforts boolean
+#' @importFrom httr GET status_code content http_status
+#' @importFrom jsonlite fromJSON
 #'
 #' @return myActivity as list with activity details
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' getActivity(
+#'      token = mytoken,
+#'      activity_id = 12345,
+#'      include_all_efforts = TRUE
+#' )
+#' }
 getActivity <- function( token = NULL,
                          activity_id = NULL,
                          include_all_efforts = FALSE){

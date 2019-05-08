@@ -21,3 +21,12 @@ myActivity as list with activity details
 Returns the given activity that is owned by the authenticated athlete.
 https://developers.strava.com/playground/#/Activities/getActivityById
 }
+\examples{
+\dontrun{
+getActivity(
+     token = mytoken,
+     activity_id = 12345,
+     include_all_efforts = TRUE
+)
+}
+}

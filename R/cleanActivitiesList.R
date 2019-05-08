@@ -17,9 +17,13 @@
 #' }
 cleanActivitiesList <- function(activities = NULL){
 
-
     ## test input
     if(is.null(activities)){ stop("activities cannot be NULL")}
+
+    ## Dealing with no visible global function definition for ‘:=’
+    # https://cran.r-project.org/web/packages/data.table/vignettes/datatable-importing.html
+    `:=` = function(...) NULL
+
 
     ## clean activities.
     ## ------------------

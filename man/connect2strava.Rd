@@ -19,7 +19,7 @@ Create authentication token with strava (based on web authentication)
 }
 \examples{
 \dontrun{
-connect2strava(strava.keu = "mykeyhere", strava.secret = "mysecrethere")
+connect2strava(strava_key = "mykeyhere", strava_secret = "mysecrethere")
 }
 }
 \seealso{

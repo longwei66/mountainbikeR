@@ -34,3 +34,4 @@ Collate:
     'getGear.R'
     'getStreams.R'
     'listActivities.R'
+    'mountainbikerR.R'

@@ -1,4 +1,4 @@
-# mountainbiker - when Mountain meets mountainbike 
+# mountainbiker - when R meets mountainbike and strava
 
 ## What is mountainbikeR
 

@@ -12,9 +12,8 @@
 #' @param before_date return activities before date as YYYY-MM-DD
 #'
 #' @return the activities database as json
-#' @import httr
-#' @import jsonlite
-#' @import data.table
+#' @importFrom  httr GET status_code content
+#' @importFrom  jsonlite fromJSON
 #' @export
 #' @source
 #' \url{https://developers.strava.com/docs/reference/#api-Activities-getLoggedInAthleteActivities}
@@ -24,14 +23,18 @@
 #' getActivities(token = myToken, activities_per_page = 200, page_number = 2)
 #' }
 listActivities <- function(token = NULL,
-                          activities_per_page = 200,
-                          page_number = 1,
-                          after_date = NULL,
-                          before_date = NULL){
+                           activities_per_page = 200,
+                           page_number = 1,
+                           after_date = NULL,
+                           before_date = NULL){
 
     ## test input
-    if(is.null(token)){ stop("token cannot be NULL")}
-    if(activities_per_page > 200){ stop("activities_per_page cannot be larger than 200")}
+    if(is.null(token)){
+        stop("token cannot be NULL")
+    }
+    if(activities_per_page > 200){
+        stop("activities_per_page cannot be larger than 200")
+    }
 
     ## convert dates if not null
     if(!is.null(after_date)){
@@ -42,13 +45,14 @@ listActivities <- function(token = NULL,
     }
 
     ## call API to get all activities
-    strava.activities <- httr::GET("https://www.strava.com/",
-                                   path = "api/v3/athlete/activities",
-                                   query = list(access_token = token,
-                                                per_page = activities_per_page,
-                                                page = page_number,
-                                                before = before_date,
-                                                after = after_date)
+    strava.activities <- httr::GET(
+        "https://www.strava.com/",
+        path = "api/v3/athlete/activities",
+        query = list(access_token = token,
+                     per_page = activities_per_page,
+                     page = page_number,
+                     before = before_date,
+                     after = after_date)
     )
 
     api.code <- httr::status_code(strava.activities)
@@ -60,7 +64,7 @@ listActivities <- function(token = NULL,
         return(strava.activities.json)
     } else {
         message(paste0("something is wrong in the api code: ",
-                    httr::http_status(strava.activities)$message))
+                       httr::http_status(strava.activities)$message))
         strava.activities <- httr::content(strava.activities, "text")
         strava.activities.json <- jsonlite::fromJSON(strava.activities)
         return(strava.activities.json)

@@ -16,6 +16,9 @@ getStreams(token = NULL, activity_id = NULL, stream_keys = NULL)
 
 \item{stream_keys}{a vector of Desired stream types, see stream_types}
 }
+\value{
+myStreams a list of streams
+}
 \description{
 get streams from one specific activity
 }

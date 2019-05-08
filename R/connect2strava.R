@@ -7,12 +7,12 @@
 #'
 #' @return sig strava token
 #' @export
-#' @import httr
+#' @importFrom httr oauth_app oauth_endpoint oauth2.0_token
 #'
 #' @seealso \url{https://www.strava.com/settings/api}
 #' @examples
 #' \dontrun{
-#' connect2strava(strava.keu = "mykeyhere", strava.secret = "mysecrethere")
+#' connect2strava(strava_key = "mykeyhere", strava_secret = "mysecrethere")
 #' }
 connect2strava <- function(strava_key = NULL, strava_secret = NULL){
 

@@ -7,7 +7,7 @@
 #'
 #' @return the gear data as json
 #' @importFrom httr GET content
-#' @import jsonlite
+#' @importFrom  jsonlite fromJSON
 #' @importFrom  data.table as.data.table
 #' @importFrom dplyr rename
 #' @export
