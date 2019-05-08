@@ -1,5 +1,7 @@
 # mountainbiker - when R meets mountainbike and strava
 
+[![Build Status](https://travis-ci.org/longwei66/mountainbikeR.svg?branch=master)](https://travis-ci.org/longwei66/mountainbikeR)
+
 ## What is mountainbikeR
 
 A package for mountainbikers who use strava to log their rides and want to 
@@ -90,3 +92,9 @@ devtools::test()
 devtools::check()
 devtools::load_all()
 ```
+
+## Add continuous integration
+
+https://jef.works/blog/2019/02/17/automate-testing-of-your-R-package/
+https://docs.travis-ci.com/user/languages/r/
+
