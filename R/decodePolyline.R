@@ -1,21 +1,27 @@
-#' Decode Google polyline of an activity into latitude and longitude
+#' Decode Google polyline into latitude and longitude
 #'
-#' Decodes Google's polyline that are given in get_activity() and get_activity_list()
+#' This function converts the polyline into latitude and longitude coordinates.
+#'
 #'
 #' @author Daniel Padfield
-#' @param Google_polyline character element of Google polyline of an activity
+#' @param polyline character element of Google polyline of an activity
 #' @return A vector of latitudes an longitudes in decimals separated by a comma
 #' @concept notoken
-#' @details When getting an activity using get_activity() a Google polyline is returned as one of the outputs. This function converts the polyline into latitude and longitude coordinates suitable for plotting. Function is used internally within \code{\link{get_LatLon}} and \code{\link{get_all_LatLon}}.
 #' @examples
 #' \dontrun{
 #' decode_Polyline()}
 #' @export
-#' @references Original code from : https://s4rdd.blogspot.co.uk/2012/12/google-maps-api-decoding-polylines-for.html?showComment=1473004506791#c3610119369153401460
+#' @seealso \url{https://s4rdd.blogspot.co.uk/2012/12/google-maps-api-decoding-polylines-for.html?showComment=1473004506791#c3610119369153401460}
 
-decodePolyline <- function(Google_polyline){
+decodePolyline <- function(polyline = NULL){
 
-    vlen <- nchar(Google_polyline)
+    ## test input
+    if(is.null(polyline)){ stop("polyline cannot be NULL or empty string")}
+    if(polyline == ""){ stop("polyline cannot be NULL or empty string")}
+    if(!is.character(polyline)){ stop("polyline must be a character string")}
+    if(length(polyline) != 1){ stop("polyline must be of length 1")}
+
+vlen <- nchar(polyline)
     vindex <- 0
     varray <- NULL
     vlat <- 0
@@ -28,7 +34,7 @@ decodePolyline <- function(Google_polyline){
         repeat{
             if(vindex + 1 <= vlen){
                 vindex <- vindex + 1
-                vb <- as.integer(charToRaw(substr(Google_polyline, vindex, vindex))) - 63
+                vb <- as.integer(charToRaw(substr(polyline, vindex, vindex))) - 63
             }
 
             vresult <- bitops::bitOr(vresult, bitops::bitShiftL(bitops::bitAnd(vb, 31), vshift))
@@ -48,7 +54,7 @@ decodePolyline <- function(Google_polyline){
         repeat{
             if(vindex + 1 <= vlen) {
                 vindex <- vindex+1
-                vb <- as.integer(charToRaw(substr(Google_polyline, vindex, vindex))) - 63
+                vb <- as.integer(charToRaw(substr(polyline, vindex, vindex))) - 63
             }
 
             vresult <- bitops::bitOr(vresult, bitops::bitShiftL(bitops::bitAnd(vb, 31), vshift))

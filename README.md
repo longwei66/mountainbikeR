@@ -1,4 +1,6 @@
-# What is mountainbikeR
+# mountainbiker - when Mountain meets mountainbike 
+
+## What is mountainbikeR
 
 A package for mountainbikers who use strava to log their rides and want to 
 explore and visualise their rides data.
@@ -6,19 +8,30 @@ explore and visualise their rides data.
 ## Objective
 
 
-# Log - Code
+# Main functions
 
-## Import functions from previous project
+## `mountainbikeR` Functions
 
+### Authentication
 - `connect2strava` to connect to strave api with key an secret
+
+### Activities 
 - `listActivities` to get all your activities in one table
-- `getGear` to get the list of your gears
 - `cleanActitiesList` to clean list of activities
-- `decodePolyline` a code to decode polyline (google format for geo path)
 - `getActivity`to get all the details of one specific activity
+
+### Streams
 - `getStreams`to get streams from an activity
 
-## Add datasets
+### Gears
+- `getGear` to get the list of your gears
+
+### Toolbox
+- `decodePolyline` a code to decode polyline (google format for geo path)
+- `extractPath` to extract path from polyline and build a data.table with id and date
+
+
+## `mountainbikeR` Datasets
 
 - `stream_type`contains types of streams
 - `workout_types` contains types of workout
@@ -63,6 +76,11 @@ git push -u origin master
 usethis::use_testthat()
 ```
 
+## Set-up the raw data environment
+
+```
+usethis::use_data_raw()
+```
 
 ## Make the package
 

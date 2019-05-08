@@ -3,6 +3,7 @@
 export(cleanActivitiesList)
 export(connect2strava)
 export(decodePolyline)
+export(extractPath)
 export(getActivity)
 export(getGear)
 export(getStreams)

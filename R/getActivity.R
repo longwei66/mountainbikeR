@@ -3,7 +3,9 @@
 #' Returns the given activity that is owned by the authenticated athlete.
 #' https://developers.strava.com/playground/#/Activities/getActivityById
 #'
-#' @param activity.id
+#' @param token the strava token
+#' @param activity_id the strava id of the activity
+#' @param include_all_efforts boolean
 #'
 #' @return myActivity as list with activity details
 #' @export
@@ -33,6 +35,7 @@ getActivity <- function( token = NULL,
         myActivity <- httr::content(myActivity, "text")
         ## convert json to list
         myActivity <- jsonlite::fromJSON(myActivity)
+        message(paste0("... Success in getting activity", activity_id))
         return(myActivity)
     } else {
         message(paste0("something is wrong in the api code: ",

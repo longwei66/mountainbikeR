@@ -86,7 +86,7 @@ cleanActivitiesList <- function(activities = NULL){
     activities[ , workout_type_id := workout_type]
     activities <- dplyr::select(activities, -workout_type)
 
-    activities <- merge(x = activities, y = mountainbikeR::workout_types,
+    activities <- merge(x = activities, y = workout_types,
                            by.x = "workout_type_id", by.y = "workout_type_id", all.x = TRUE)
 
 

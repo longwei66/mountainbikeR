@@ -15,7 +15,7 @@ connect2strava(strava.key = NULL, strava.secret = NULL)
 sig strava token
 }
 \description{
-Create authentication token with strave (based on web)
+Create authentication token with strava (based on web authentication)
 }
 \examples{
 \dontrun{
@@ -23,5 +23,5 @@ connect2strava(strava.keu = "mykeyhere", strava.secret = "mysecrethere")
 }
 }
 \seealso{
-https://www.strava.com/settings/api
+\url{https://www.strava.com/settings/api}
 }

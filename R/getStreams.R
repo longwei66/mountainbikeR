@@ -4,7 +4,7 @@
 #'
 #' @param token the strava authorization token
 #' @param activity_id integer, The identifier of the activity
-#' @param stream_types a vector of Desired stream types, see stream_types
+#' @param stream_keys a vector of Desired stream types, see stream_types
 #'
 #' @return
 #' @export

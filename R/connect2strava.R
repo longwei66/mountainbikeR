@@ -1,6 +1,6 @@
 #' connect2strava
 #'
-#' Create authentication token with strave (based on web)
+#' Create authentication token with strava (based on web authentication)
 #'
 #' @param strava.key strava key
 #' @param strava.secret strave secret
@@ -9,7 +9,7 @@
 #' @export
 #' @import httr
 #'
-#' @seealso https://www.strava.com/settings/api
+#' @seealso \url{https://www.strava.com/settings/api}
 #' @examples
 #' \dontrun{
 #' connect2strava(strava.keu = "mykeyhere", strava.secret = "mysecrethere")
