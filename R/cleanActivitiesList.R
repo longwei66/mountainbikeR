@@ -9,6 +9,7 @@
 #' @importFrom dplyr select %>%
 #' @importFrom data.table rbindlist as.data.table
 #' @importFrom rlang .data
+#' @importFrom anytime anytime
 #'
 #'
 #' @examples
@@ -75,8 +76,8 @@ cleanActivitiesList <- function(activities = NULL){
 
     ## Convert Dates
     start_date = start_date_local = NULL
-    activities[ , start_date := strptime(x = start_date, format = "%Y-%m-%dT%H:%M:%SZ")]
-    activities[ , start_date_local := strptime(x = start_date_local, format = "%Y-%m-%dT%H:%M:%SZ")]
+    activities[ , start_date := anytime::anytime(x = start_date)]
+    activities[ , start_date_local := anytime::anytime(x = start_date_local)]
 
     ## Add Map
     activities[ , map := map]
