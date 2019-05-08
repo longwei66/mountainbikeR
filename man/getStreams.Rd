@@ -20,5 +20,11 @@ getStreams(token = NULL, activity_id = NULL, stream_keys = NULL)
 get streams from one specific activity
 }
 \examples{
+\dontrun{
+getStreams(
+   token = myToken,
+   activity_id = 1234567,
+   stream_keys = c("time","latlng","altitude"))
+}
 
 }

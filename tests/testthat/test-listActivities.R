@@ -5,5 +5,5 @@ test_that("listActivities handle null values", {
 })
 
 test_that("listActivities returns error is more than 200 activities per page", {
-    expect_error(listActivities(token = "zob", activities.per.page = 250), "activities.per.page cannot be larger than 200",fixed = TRUE)
+    expect_error(listActivities(token = "zob", activities_per_page = 250), "activities_per_page cannot be larger than 200",fixed = TRUE)
 })

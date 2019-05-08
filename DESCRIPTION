@@ -1,6 +1,6 @@
 Package: mountainbikeR
 Title: A package for mountainbikers to access and visualise ride data through
-    strava API.
+    strava API
 Version: 0.0.0.5000
 Authors@R: 
     person(given = "Wei",
@@ -17,7 +17,10 @@ Imports:
     data.table,
     dplyr,
     httr,
-    jsonlite
+    jsonlite,
+    bitops,
+    anytime,
+    rlang
 Suggests: 
     testthat
 Collate: 

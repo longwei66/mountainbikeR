@@ -3,34 +3,36 @@
 #' Get all gear detail from strava api from gears id
 #'
 #' @param token the strava identification token
-#' @param gear.id the id of the gear
+#' @param gear_id the id of the gear
 #'
 #' @return the gear data as json
-#' @import httr
+#' @importFrom httr GET content
 #' @import jsonlite
-#' @import data.table
-#' @import dplyr
+#' @importFrom  data.table as.data.table
+#' @importFrom dplyr rename
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#' getGear(token = myToken, gear.id = myGearId)
+#' getGear(token = myToken, gear_id = myGearId)
 #' }
-getGear <- function(token = NULL, gear.id = NULL){
+getGear <- function(token = NULL, gear_id = NULL){
 
     ## test input
     if(is.null(token)){ stop("token cannot be NULL")}
-    if(is.null(gear.id)){ stop("gear.id cannot be NULL")}
+    if(is.null(gear_id)){ stop("gear_id cannot be NULL")}
 
 
     ## call API to get all activities
     gear <- httr::GET("https://www.strava.com/",
-                                   path = paste0("api/v3/gear/",gear.id),
-                                   query = list(access_token = myToken, per_page = 200)
+                                   path = paste0("api/v3/gear/",gear_id),
+                                   query = list(access_token = token,
+                                                per_page = 200)
     )
     gear <- httr::content(gear, "text")
 
-    gear.data <- as.data.table(jsonlite::fromJSON(gear)) %>% rename(gear_name = name, gear_id = id)
+    gear_data <- data.table::as.data.table(jsonlite::fromJSON(gear)) %>%
+        dplyr::rename(gear_name = .data$name, gear_id = .data$id)
 
-    return(gear.data)
+    return(gear_data)
 }

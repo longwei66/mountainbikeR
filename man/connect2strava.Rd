@@ -4,12 +4,12 @@
 \alias{connect2strava}
 \title{connect2strava}
 \usage{
-connect2strava(strava.key = NULL, strava.secret = NULL)
+connect2strava(strava_key = NULL, strava_secret = NULL)
 }
 \arguments{
-\item{strava.key}{strava key}
+\item{strava_key}{strava key}
 
-\item{strava.secret}{strave secret}
+\item{strava_secret}{strave secret}
 }
 \value{
 sig strava token

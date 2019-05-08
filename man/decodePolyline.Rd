@@ -23,6 +23,5 @@ decode_Polyline()}
 \url{https://s4rdd.blogspot.co.uk/2012/12/google-maps-api-decoding-polylines-for.html?showComment=1473004506791#c3610119369153401460}
 }
 \author{
-Daniel Padfield
+First Daniel Padfield then Wei Long
 }
-\concept{notoken}

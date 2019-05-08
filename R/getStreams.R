@@ -11,6 +11,12 @@
 #' @source \url{https://developers.strava.com/docs/reference/#api-Streams-getActivityStreams}
 #'
 #' @examples
+#' \dontrun{
+#' getStreams(
+#'    token = myToken,
+#'    activity_id = 1234567,
+#'    stream_keys = c("time","latlng","altitude"))
+#' }
 #'
 getStreams <- function(token = NULL,
                        activity_id = NULL,
@@ -26,7 +32,7 @@ getStreams <- function(token = NULL,
     ## API path
     my_path = paste0("api/v3/activities/",activity_id,"/streams")
 
-    query_list <- list(access_token = myToken,
+    query_list <- list(access_token = token,
                        key_by_type = TRUE,
                        keys = paste(stream_keys, collapse = ","))
 

@@ -2,3 +2,6 @@
 ^\.Rproj\.user$
 ^mountainbikeR\.Rproj$
 ^data-raw$
+^sandbox$
+^conf$
+^mydata$

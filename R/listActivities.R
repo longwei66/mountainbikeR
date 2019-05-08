@@ -6,9 +6,10 @@
 #' with activity:read_all.
 #'
 #' @param token the strava identification token
-#' @param activities.per.page max number of item to return (must be 200 max)
-#' @param after.date return activities after date as YYYY-MM-DD
-#' @param before.date return activities before date as YYYY-MM-DD
+#' @param activities_per_page max number of item to return (must be 200 max)
+#' @param page_number the specific page number to extract
+#' @param after_date return activities after date as YYYY-MM-DD
+#' @param before_date return activities before date as YYYY-MM-DD
 #'
 #' @return the activities database as json
 #' @import httr
@@ -20,34 +21,34 @@
 #'
 #' @examples
 #' \dontrun{
-#' getActivities(token = myToken, activities.per.page = 200, page.number = 2)
+#' getActivities(token = myToken, activities_per_page = 200, page_number = 2)
 #' }
 listActivities <- function(token = NULL,
-                          activities.per.page = 200,
-                          page.number = 1,
-                          after.date = NULL,
-                          before.date = NULL){
+                          activities_per_page = 200,
+                          page_number = 1,
+                          after_date = NULL,
+                          before_date = NULL){
 
     ## test input
     if(is.null(token)){ stop("token cannot be NULL")}
-    if(activities.per.page > 200){ stop("activities.per.page cannot be larger than 200")}
+    if(activities_per_page > 200){ stop("activities_per_page cannot be larger than 200")}
 
     ## convert dates if not null
-    if(!is.null(after.date)){
-        after.date = as.numeric(as.POSIXct(after.date, format = "%Y-%m-%d"))
+    if(!is.null(after_date)){
+        after_date = as.numeric(as.POSIXct(after_date, format = "%Y-%m-%d"))
     }
-    if(!is.null(before.date)){
-        before.date = as.numeric(as.POSIXct(before.date, format = "%Y-%m-%d"))
+    if(!is.null(before_date)){
+        before_date = as.numeric(as.POSIXct(before_date, format = "%Y-%m-%d"))
     }
 
     ## call API to get all activities
     strava.activities <- httr::GET("https://www.strava.com/",
                                    path = "api/v3/athlete/activities",
-                                   query = list(access_token = myToken,
-                                                per_page = activities.per.page,
-                                                page = page.number,
-                                                before = before.date,
-                                                after = after.date)
+                                   query = list(access_token = token,
+                                                per_page = activities_per_page,
+                                                page = page_number,
+                                                before = before_date,
+                                                after = after_date)
     )
 
     api.code <- httr::status_code(strava.activities)

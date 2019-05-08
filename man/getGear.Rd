@@ -4,12 +4,12 @@
 \alias{getGear}
 \title{getGear}
 \usage{
-getGear(token = NULL, gear.id = NULL)
+getGear(token = NULL, gear_id = NULL)
 }
 \arguments{
 \item{token}{the strava identification token}
 
-\item{gear.id}{the id of the gear}
+\item{gear_id}{the id of the gear}
 }
 \value{
 the gear data as json
@@ -19,6 +19,6 @@ Get all gear detail from strava api from gears id
 }
 \examples{
 \dontrun{
-getGear(token = myToken, gear.id = myGearId)
+getGear(token = myToken, gear_id = myGearId)
 }
 }

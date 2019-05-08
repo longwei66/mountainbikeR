@@ -2,11 +2,10 @@
 #'
 #' This function converts the polyline into latitude and longitude coordinates.
 #'
-#'
-#' @author Daniel Padfield
+#' @author First Daniel Padfield then Wei Long
 #' @param polyline character element of Google polyline of an activity
 #' @return A vector of latitudes an longitudes in decimals separated by a comma
-#' @concept notoken
+#' @importFrom bitops bitOr bitShiftL bitAnd bitShiftR
 #' @examples
 #' \dontrun{
 #' decode_Polyline()}

@@ -7,6 +7,7 @@
 #' @param id the associated id of the polyline (the segment or strava activity id)
 #' @param date_time the YYYY-MM-DD date
 #'
+#' @importFrom anytime anydate
 #' @return a data.frame with lon, lat, point_id, id, date as column
 #' @export
 #' @include decodePolyline.R

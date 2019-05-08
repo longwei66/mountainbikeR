@@ -7,17 +7,19 @@
 \url{https://developers.strava.com/docs/reference/#api-Activities-getLoggedInAthleteActivities}
 }
 \usage{
-listActivities(token = NULL, activities.per.page = 200,
-  page.number = 1, after.date = NULL, before.date = NULL)
+listActivities(token = NULL, activities_per_page = 200,
+  page_number = 1, after_date = NULL, before_date = NULL)
 }
 \arguments{
 \item{token}{the strava identification token}
 
-\item{activities.per.page}{max number of item to return (must be 200 max)}
+\item{activities_per_page}{max number of item to return (must be 200 max)}
 
-\item{after.date}{return activities after date as YYYY-MM-DD}
+\item{page_number}{the specific page number to extract}
 
-\item{before.date}{return activities before date as YYYY-MM-DD}
+\item{after_date}{return activities after date as YYYY-MM-DD}
+
+\item{before_date}{return activities before date as YYYY-MM-DD}
 }
 \value{
 the activities database as json
@@ -30,6 +32,6 @@ with activity:read_all.
 }
 \examples{
 \dontrun{
-getActivities(token = myToken, activities.per.page = 200, page.number = 2)
+getActivities(token = myToken, activities_per_page = 200, page_number = 2)
 }
 }

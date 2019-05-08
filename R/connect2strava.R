@@ -2,8 +2,8 @@
 #'
 #' Create authentication token with strava (based on web authentication)
 #'
-#' @param strava.key strava key
-#' @param strava.secret strave secret
+#' @param strava_key strava key
+#' @param strava_secret strave secret
 #'
 #' @return sig strava token
 #' @export
@@ -14,14 +14,16 @@
 #' \dontrun{
 #' connect2strava(strava.keu = "mykeyhere", strava.secret = "mysecrethere")
 #' }
-connect2strava <- function(strava.key = NULL, strava.secret = NULL){
+connect2strava <- function(strava_key = NULL, strava_secret = NULL){
 
     # check inputs
-    if(is.null(strava.key)){ stop("strava.key cannot be NULL")}
-    if(is.null(strava.secret)){ stop("strava.secret cannot be NULL")}
+    if(is.null(strava_key)){ stop("strava_key cannot be NULL")}
+    if(is.null(strava_secret)){ stop("strava_secret cannot be NULL")}
 
     # declare the auth_app
-    my_app <- httr::oauth_app("strava", key = myId, secret = mySecret)
+    my_app <- httr::oauth_app("strava",
+                              key = strava_key,
+                              secret = strava_secret)
 
     # configure endpoint
     my_endpoint <- httr::oauth_endpoint(
