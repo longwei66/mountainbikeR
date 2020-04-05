@@ -96,5 +96,6 @@ devtools::load_all()
 ## Add continuous integration
 
 https://jef.works/blog/2019/02/17/automate-testing-of-your-R-package/
+
 https://docs.travis-ci.com/user/languages/r/
 
