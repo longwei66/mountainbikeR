@@ -1,7 +1,7 @@
 Package: mountainbikeR
 Title: A package for mountainbikers to access and visualise ride data through
     strava API
-Version: 0.0.0.8000
+Version: 0.0.0.8010
 Authors@R: 
     person(given = "Wei",
            family = "Long",
@@ -14,6 +14,7 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.0
 Imports:
+    R6,
     data.table,
     dplyr,
     httr,
@@ -24,3 +25,10 @@ Imports:
 Suggests: 
     testthat
 Collate: 
+    'R6class.R'
+    'R6_active.R'
+    'R6_get_gear.R'
+    'R6_initialize.R'
+    'R6_list_activities.R'
+    'data_stream_types.R'
+    'data_workout_types.R'

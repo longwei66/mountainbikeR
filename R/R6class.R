@@ -29,7 +29,6 @@ mountainbiker_initializer <- R6::R6Class(
     active = list(
         #' @field token Shows generated token.
         token = function(){
-
             environment(def_token) <- environment()
             def_token()
         }
@@ -74,6 +73,43 @@ mountainbiker_initializer <- R6::R6Class(
                 , cache
                 )
 
+        },
+
+        #' @description
+        #' List all activities from strava api. Returns the activities of an athlete
+        #' for a specific identifier. Requires activity:read.
+        #' Only Me activities will be filtered out unless requested by a token
+        #' with activity:read_all.
+        #'
+        #' @param activities_per_page max number of item to return (must be 200 max)
+        #' @param page_number the specific page number to extract
+        #' @param after_date return activities after date as YYYY-MM-DD
+        #' @param before_date return activities before date as YYYY-MM-DD
+        list_activities = function(
+            activities_per_page = 200
+            , page_number = 1
+            , after_date = NULL
+            , before_date = NULL
+        ){
+            environment(def_list_activities) <- environment()
+            def_list_activities(
+                activities_per_page = activities_per_page
+                , page_number = page_number
+                , after_date = after_date
+                , before_date = before_date
+            )
+        },
+
+
+        #' @description
+        #' Get athlete gear description from gear id
+        #' @param gear_id the id of the gear to get
+        get_gear = function(
+            gear_id = NULL
+        ){
+
+            environment(def_get_gear) <- environment()
+            def_get_gear(gear_id = gear_id)
         }
     ),
     lock_objects = FALSE

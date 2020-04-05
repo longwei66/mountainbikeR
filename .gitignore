@@ -27,3 +27,6 @@ rsconnect/
 .Rproj.user
 conf
 mydata
+img
+tmp
+

@@ -39,6 +39,8 @@ my_mb <- mountainbiker_initializer$new(
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-new}{\code{mountainbiker_initializer$new()}}
+\item \href{#method-list_activities}{\code{mountainbiker_initializer$list_activities()}}
+\item \href{#method-get_gear}{\code{mountainbiker_initializer$get_gear()}}
 \item \href{#method-clone}{\code{mountainbiker_initializer$clone()}}
 }
 }
@@ -92,6 +94,54 @@ my_mb <- mountainbiker_initializer$new(
 
 }
 
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-list_activities"></a>}}
+\if{latex}{\out{\hypertarget{method-list_activities}{}}}
+\subsection{Method \code{list_activities()}}{
+List all activities from strava api. Returns the activities of an athlete
+for a specific identifier. Requires activity:read.
+Only Me activities will be filtered out unless requested by a token
+with activity:read_all.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$list_activities(
+  activities_per_page = 200,
+  page_number = 1,
+  after_date = NULL,
+  before_date = NULL
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{activities_per_page}}{max number of item to return (must be 200 max)}
+
+\item{\code{page_number}}{the specific page number to extract}
+
+\item{\code{after_date}}{return activities after date as YYYY-MM-DD}
+
+\item{\code{before_date}}{return activities before date as YYYY-MM-DD}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_gear"></a>}}
+\if{latex}{\out{\hypertarget{method-get_gear}{}}}
+\subsection{Method \code{get_gear()}}{
+Get athlete gear description from gear id
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_gear(gear_id = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{gear_id}}{the id of the gear to get}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}

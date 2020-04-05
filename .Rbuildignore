@@ -5,3 +5,6 @@
 ^sandbox$
 ^conf$
 ^mydata$
+img
+tmp
+.travis.yml

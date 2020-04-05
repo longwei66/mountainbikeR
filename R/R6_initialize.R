@@ -6,6 +6,7 @@
 #' @param my_client_id chr string, the ID of the app like 27881
 #' @param my_client_secret chr string, the secret as defined in strava
 #' @param my_app_scope chr string for requested scopes, as a comma delimited
+#' @param cache logical, TRUE to have local cache of the token, FALSE not
 #' string, e.g. "activity:read_all,activity:write"
 #'
 #'
@@ -67,7 +68,7 @@ def_initialize <- function(
         , scope = private$.my_app_scope
         , cache = private$.cache
         )
-    private$.connexion_statut <- TRUE
+    private$.connexion_status <- TRUE
     message("Token sucessfully generated ! You can retreive the value using 'token' method of your object.")
 
 }
