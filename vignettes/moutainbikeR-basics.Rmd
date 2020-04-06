@@ -1,0 +1,67 @@
+---
+title: "moutainbikeR basics"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{moutainbikeR-basics}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(mountainbikeR)
+library(kableExtra)
+```
+
+# the `mountainbikeR` package
+
+Here we will write few words about the `mountainbikeR` package.
+
+# Initialization, create a mountainbikeR object.
+
+```{r mountainbiker_initializer}
+my_mbr <- mountainbiker_initializer$new(
+     my_app_name = Sys.getenv("STRAVA_APP_NAME")
+     , my_client_id = Sys.getenv("STRAVA_CLIENT_ID")
+     , my_client_secret = Sys.getenv("STRAVA_CLIENT_SECRET")
+     , my_app_scope = "read,read_all,activity:read_all"
+     , cache = FALSE
+
+)
+```
+
+We can now check few informations about our connection.
+
+```{r checkConnection}
+my_mbr$token$credentials$token_type
+my_mbr$token$credentials$expires_at
+substr(my_mbr$token$credentials$access_token,1,4)
+my_mbr$token$credentials$athlete$sex
+```
+
+# Getting some activities
+
+Using the `list_activities` method of the object we can get a list of activities.
+
+```{r}
+# List activities
+some_activities <- my_mbr$list_activities(
+  activities_per_page = 3
+  , page_number = 12
+  , after_date = "2019-01-01"
+    )
+# Fields available
+names(some_activities)
+
+# Display some of the data
+some_activities$moving_time
+some_activities$type
+
+```
+

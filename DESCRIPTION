@@ -23,7 +23,9 @@ Imports:
     anytime,
     rlang
 Suggests: 
-    testthat
+    testthat,
+    knitr,
+    rmarkdown
 Collate: 
     'R6class.R'
     'R6_active.R'
@@ -32,3 +34,4 @@ Collate:
     'R6_list_activities.R'
     'data_stream_types.R'
     'data_workout_types.R'
+VignetteBuilder: knitr
