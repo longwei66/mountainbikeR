@@ -1,6 +1,6 @@
 # mountainbiker - when R meets mountainbike and strava
 
-[![Build Status](https://travis-ci.org/longwei66/mountainbikeR.svg?branch=master)](https://travis-ci.org/longwei66/mountainbikeR)
+[![Build Status](https://travis-ci.org/longwei66/mountainbikeR.svg?branch=dev)](https://travis-ci.org/longwei66/mountainbikeR)
 
 ## What is mountainbikeR
 
@@ -9,29 +9,43 @@ explore and visualise their rides data.
 
 ## Objective
 
+This package combines several tools :
+
+- a set of functions to get your personnal data from strava api, your activites, gear, segments
+- a set of functions to visualise your activities and segment data, plots, maps, etc...
+- a shiny app packaging data and visualisation
+- a plumber api integrating a trained machine learning model to predict if a given segment is a single track
+- all the necessary code to retrain the model
+- a set of function to explore a defined geographical area, and especially find single track segments
 
 # Main functions
 
-## `mountainbikeR` Functions
+## Getting & cleaning dat a from strava api
 
-### Authentication
-- `connect2strava` to connect to strave api with key an secret
+### Documentation
 
-### Activities 
-- `listActivities` to get all your activities in one table
-- `cleanActitiesList` to clean list of activities
-- `getActivity`to get all the details of one specific activity
+Strava API is well documented [here](https://developers.strava.com/)
 
-### Streams
-- `getStreams`to get streams from an activity
+### Principles
 
-### Gears
-- `getGear` to get the list of your gears
+`mountainbikeR` uses object oriented programming, implemented as R6 class ( you can read mo [here](https://adv-r.hadley.nz/r6.html)).
 
-### Toolbox
-- `decodePolyline` a code to decode polyline (google format for geo path)
-- `extractPath` to extract path from polyline and build a data.table with id and date
+### Prerequisites
+You should first create a personnal app in strava following this [guide](https://developers.strava.com/docs/getting-started/#account).
 
+### Initialization : `mountainbiker_initializer`
+You should initialise a mountainbikeR object using your strava credentials using `mountainbiker_initializer$new()`.
+In the example bellow, strava credentials are stored in `~/.Renviron` (see [here](https://daattali.gitbooks.io/stat545-ubc-github-io/bit003_api-key-env-var.html)).
+
+```
+my_mbr <- mountainbiker_initializer$new(
+     my_app_name = Sys.getenv("STRAVA_APP_NAME")
+     , my_client_id = Sys.getenv("STRAVA_CLIENT_ID_")
+     , my_client_secret = Sys.getenv("STRAVA_CLIENT_SECRET")
+     , my_app_scope = "read,read_all,activity:read_all"
+     , cache = FALSE
+)
+```
 
 ## `mountainbikeR` Datasets
 
