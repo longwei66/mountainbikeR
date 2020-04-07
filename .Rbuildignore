@@ -8,3 +8,6 @@
 img
 tmp
 .travis.yml
+^doc$
+^Meta$
+^\.httr-oauth$

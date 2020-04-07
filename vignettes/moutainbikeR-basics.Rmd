@@ -25,16 +25,17 @@ Here we will write few words about the `mountainbikeR` package.
 
 # Initialization, create a mountainbikeR object.
 
-```{r mountainbiker_initializer}
+```{r mountainbiker_initializer, echo=TRUE}
 my_mbr <- mountainbiker_initializer$new(
      my_app_name = Sys.getenv("STRAVA_APP_NAME")
      , my_client_id = Sys.getenv("STRAVA_CLIENT_ID")
      , my_client_secret = Sys.getenv("STRAVA_CLIENT_SECRET")
      , my_app_scope = "read,read_all,activity:read_all"
-     , cache = FALSE
+     , cache = TRUE
 
 )
 ```
+
 
 We can now check few informations about our connection.
 
