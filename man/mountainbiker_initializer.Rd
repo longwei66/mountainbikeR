@@ -39,7 +39,8 @@ my_mb <- mountainbiker_initializer$new(
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-new}{\code{mountainbiker_initializer$new()}}
-\item \href{#method-list_activities}{\code{mountainbiker_initializer$list_activities()}}
+\item \href{#method-get_activities}{\code{mountainbiker_initializer$get_activities()}}
+\item \href{#method-get_activity}{\code{mountainbiker_initializer$get_activity()}}
 \item \href{#method-get_gear}{\code{mountainbiker_initializer$get_gear()}}
 \item \href{#method-clone}{\code{mountainbiker_initializer$clone()}}
 }
@@ -96,15 +97,15 @@ my_mb <- mountainbiker_initializer$new(
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-list_activities"></a>}}
-\if{latex}{\out{\hypertarget{method-list_activities}{}}}
-\subsection{Method \code{list_activities()}}{
+\if{html}{\out{<a id="method-get_activities"></a>}}
+\if{latex}{\out{\hypertarget{method-get_activities}{}}}
+\subsection{Method \code{get_activities()}}{
 List all activities from strava api. Returns the activities of an athlete
 for a specific identifier. Requires activity:read.
 Only Me activities will be filtered out unless requested by a token
 with activity:read_all.
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$list_activities(
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_activities(
   activities_per_page = 200,
   page_number = 1,
   after_date = NULL,
@@ -122,6 +123,29 @@ with activity:read_all.
 \item{\code{after_date}}{return activities after date as YYYY-MM-DD}
 
 \item{\code{before_date}}{return activities before date as YYYY-MM-DD}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_activity"></a>}}
+\if{latex}{\out{\hypertarget{method-get_activity}{}}}
+\subsection{Method \code{get_activity()}}{
+Returns the given activity that is owned by the authenticated athlete.
+https://developers.strava.com/playground/#/Activities/getActivityById
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_activity(
+  activity_id = NULL,
+  include_all_efforts = FALSE
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{activity_id}}{the strava id of the activity}
+
+\item{\code{include_all_efforts}}{boolean}
 }
 \if{html}{\out{</div>}}
 }

@@ -1,4 +1,4 @@
-#' list_activities
+#' get_activities
 #'
 #' List all activities from strava api. Returns the activities of an athlete
 #' for a specific identifier. Requires activity:read.
@@ -14,43 +14,46 @@
 #' @return the activities database as json
 #' @importFrom  httr GET status_code content
 #' @importFrom  jsonlite fromJSON
+#' @import dplyr
+#' @include clean-activities-list.R
 #' @export
 #' @source
 #' \url{https://developers.strava.com/docs/reference/#api-Activities-getLoggedInAthleteActivities}
 #'
 #' @examples
 #' \dontrun{
-#' list_activities(
-#'   mbr_object = my_object
+#' #
+#' get_activities(
+#'   mbr_object = my_mbr
 #'   , activities_per_page = 200
 #'   , page_number = 2
 #'  , after_date = "2018-02-20"
 #'  , before_date = "2018-03-01"
 #'   )
 #' }
-list_activities <- function(
+get_activities <- function(
     mbr_object = NULL
     , activities_per_page = 200
     , page_number = 1
     , after_date = NULL
     , before_date = NULL
 ){
-    mrb_object$list_activities(
-        activities_per_page = 200
-        , page_number = 1
-        , after_date = NULL
-        , before_date = NULL
+    mrb_object$get_activities(
+        activities_per_page = activities_per_page
+        , page_number = page_number
+        , after_date = after_date
+        , before_date = before_date
     )
     invisible()
 }
 
 
-#' def_list_activities
+#' def_get_activities
 #' @param activities_per_page max number of item to return (must be 200 max)
 #' @param page_number the specific page number to extract
 #' @param after_date return activities after date as YYYY-MM-DD
 #' @param before_date return activities before date as YYYY-MM-DD
-def_list_activities <- function(
+def_get_activities <- function(
     activities_per_page = 200
     , page_number = 1
     , after_date = NULL
@@ -89,8 +92,12 @@ def_list_activities <- function(
     ## case of normal call
     if(api_code == 200){
         strava_activities <- httr::content(strava_activities, "text")
-        strava_activities_json <- jsonlite::fromJSON(strava_activities)
-        return(strava_activities_json)
+        strava_activities <- jsonlite::fromJSON(strava_activities)
+
+
+        strava_activities <- clean_activities_list(strava_activities)
+
+        return(strava_activities)
     } else {
         message(paste0("something is wrong in the api code: ",
                        httr::http_status(strava_activities)$message))

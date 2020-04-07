@@ -29,9 +29,12 @@ Suggests:
 Collate: 
     'R6class.R'
     'R6_active.R'
+    'clean-activities-list.R'
+    'R6_get_activities.R'
+    'R6_get_activity.R'
     'R6_get_gear.R'
     'R6_initialize.R'
-    'R6_list_activities.R'
     'data_stream_types.R'
     'data_workout_types.R'
+    'mountainbikerR.R'
 VignetteBuilder: knitr

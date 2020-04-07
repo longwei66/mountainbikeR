@@ -85,20 +85,39 @@ mountainbiker_initializer <- R6::R6Class(
         #' @param page_number the specific page number to extract
         #' @param after_date return activities after date as YYYY-MM-DD
         #' @param before_date return activities before date as YYYY-MM-DD
-        list_activities = function(
+        get_activities = function(
             activities_per_page = 200
             , page_number = 1
             , after_date = NULL
             , before_date = NULL
         ){
-            environment(def_list_activities) <- environment()
-            def_list_activities(
+            environment(def_get_activities) <- environment()
+            def_get_activities(
                 activities_per_page = activities_per_page
                 , page_number = page_number
                 , after_date = after_date
                 , before_date = before_date
             )
         },
+
+
+        #' @description
+        #' Returns the given activity that is owned by the authenticated athlete.
+        #' https://developers.strava.com/playground/#/Activities/getActivityById
+        #'
+        #' @param activity_id the strava id of the activity
+        #' @param include_all_efforts boolean
+        get_activity = function(
+            activity_id = NULL
+            , include_all_efforts = FALSE
+        ){
+            environment(def_get_activity) <- environment()
+            def_get_activity(
+                activity_id = activity_id
+                , include_all_efforts = include_all_efforts
+            )
+        },
+
 
 
         #' @description

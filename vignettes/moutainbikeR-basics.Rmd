@@ -48,11 +48,11 @@ my_mbr$token$credentials$athlete$sex
 
 # Getting some activities
 
-Using the `list_activities` method of the object we can get a list of activities.
+Using the `get_activities` method of the object we can get a list of activities.
 
 ```{r}
 # List activities
-some_activities <- my_mbr$list_activities(
+some_activities <- my_mbr$get_activities(
   activities_per_page = 3
   , page_number = 12
   , after_date = "2019-01-01"
