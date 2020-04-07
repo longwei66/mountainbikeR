@@ -31,21 +31,21 @@ clean_activities_list <- function(activities = NULL){
     start_latlng <- data.table::rbindlist(
         lapply(activities$start_latlng, as.data.frame.list)
         , fill = TRUE
-        )
+    )
     end_latlng <- data.table::rbindlist(
         lapply(activities$end_latlng, as.data.frame.list)
         , fill = TRUE
-        )
+    )
     map <- activities$map$summary_polyline
 
     ## Remove non necessary features
     activities <- activities %>% select(
-                                -.data$start_latlng, -.data$end_latlng
-                                , -.data$map
-                                #, -.data$resource_state, -.data$athlete,
-                                #-.data$location_city, -.data$location_state,
-                                #-.data$location_country, -.data$from_accepted_tag
-                                )
+        -.data$start_latlng, -.data$end_latlng
+        , -.data$map
+        #, -.data$resource_state, -.data$athlete,
+        #-.data$location_city, -.data$location_state,
+        #-.data$location_country, -.data$from_accepted_tag
+    )
 
     ## Convert to data.table
     activities <- data.table::as.data.table(activities)
@@ -71,11 +71,14 @@ clean_activities_list <- function(activities = NULL){
 
     #activities[ , workout_type_id := workout_type]
     activities <- activities %>%
-        dplyr::mutate(workout_type_id = .data$workout_type)
+        dplyr::rename(workout_type_id = .data$workout_type)
 
     activities <- merge(
         x = activities, y = mountainbikeR::workout_types,
         by.x = "workout_type_id", by.y = "workout_type_id", all.x = TRUE)
+    if( length(is.na(activities$workout_type)) > 0 ){
+        activities[ is.na(workout_type), workout_type := "unknown"]
+    }
 
 
     ## Convert Dates

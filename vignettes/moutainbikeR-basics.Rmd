@@ -52,17 +52,46 @@ Using the `get_activities` method of the object we can get a list of activities.
 
 ```{r}
 # List activities
-some_activities <- my_mbr$get_activities(
-  activities_per_page = 3
-  , page_number = 12
-  , after_date = "2019-01-01"
+some_activities_1 <- my_mbr$get_activities(
+  activities_per_page = 200
+  , page_number = 1
+  #, after_date = "2018-01-01"
     )
+some_activities_2 <- my_mbr$get_activities(
+  activities_per_page = 200
+  , page_number = 2
+  #, after_date = "2018-01-01"
+    )
+
+some_activities <-rbind(
+  some_activities_1
+  , some_activities_2
+  )
+
 # Fields available
 names(some_activities)
 
 # Display some of the data
-some_activities$moving_time
-some_activities$type
+head(some_activities$moving_time)
+head(some_activities$type)
 
+```
+
+```{r}
+library(ggplot2)
+g <- ggplot(data = some_activities[ type %in% c("Ride", "Run")])
+g <- g + geom_point(
+  mapping = aes(
+    col = moving_time
+    , y = total_elevation_gain
+    , x = average_heartrate
+    , shape = commute
+    , size = distance
+    )
+  , alpha = 0.7
+  )
+g <- g + scale_color_gradient(low = "green", high = "red", na.value = "grey")
+g <- g + facet_grid(facets = . ~ type , scales = "free_x")
+g
 ```
 

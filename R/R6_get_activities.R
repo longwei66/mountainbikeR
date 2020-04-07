@@ -15,7 +15,7 @@
 #' @importFrom  httr GET status_code content
 #' @importFrom  jsonlite fromJSON
 #' @import dplyr
-#' @include clean-activities-list.R
+#' @include clean_activities_list.R
 #' @export
 #' @source
 #' \url{https://developers.strava.com/docs/reference/#api-Activities-getLoggedInAthleteActivities}

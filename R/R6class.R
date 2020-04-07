@@ -76,6 +76,13 @@ mountainbiker_initializer <- R6::R6Class(
         },
 
         #' @description
+        #' Get informations about the athlete
+        get_athlete = function(){
+            environment(def_get_athlete) <- environment()
+            def_get_athlete()
+        },
+
+        #' @description
         #' List all activities from strava api. Returns the activities of an athlete
         #' for a specific identifier. Requires activity:read.
         #' Only Me activities will be filtered out unless requested by a token

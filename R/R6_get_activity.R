@@ -20,7 +20,7 @@
 #'      include_all_efforts = TRUE
 #' )
 #' }
-get_activitys <- function(
+get_activity <- function(
     mbr_object = NULL
     , activity_id = NULL
     , include_all_efforts = FALSE

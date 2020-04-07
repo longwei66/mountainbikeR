@@ -2,7 +2,8 @@
 
 export(def_initialize)
 export(get_activities)
-export(get_activitys)
+export(get_activity)
+export(get_athlete)
 export(get_gear)
 export(mountainbiker_initializer)
 import(dplyr)

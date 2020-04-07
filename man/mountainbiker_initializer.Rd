@@ -39,6 +39,7 @@ my_mb <- mountainbiker_initializer$new(
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-new}{\code{mountainbiker_initializer$new()}}
+\item \href{#method-get_athlete}{\code{mountainbiker_initializer$get_athlete()}}
 \item \href{#method-get_activities}{\code{mountainbiker_initializer$get_activities()}}
 \item \href{#method-get_activity}{\code{mountainbiker_initializer$get_activity()}}
 \item \href{#method-get_gear}{\code{mountainbiker_initializer$get_gear()}}
@@ -93,6 +94,16 @@ my_mb <- mountainbiker_initializer$new(
 }
 \if{html}{\out{</div>}}
 
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_athlete"></a>}}
+\if{latex}{\out{\hypertarget{method-get_athlete}{}}}
+\subsection{Method \code{get_athlete()}}{
+Get informations about the athlete
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_athlete()}\if{html}{\out{</div>}}
 }
 
 }
