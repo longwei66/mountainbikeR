@@ -37,9 +37,9 @@ with activity:read_all.
 }
 \examples{
 \dontrun{
-get_activities(
-  mbr_object = my_object
-  , activities_per_page = 200
+# my_mbr is a mountainbikeR objecti previously created
+my_mbr$get_activities(
+  activities_per_page = 200
   , page_number = 2
  , after_date = "2018-02-20"
  , before_date = "2018-03-01"
