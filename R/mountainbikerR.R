@@ -15,6 +15,7 @@
 #' \itemize{
 #'   \item \code{\link{get_activities}}
 #'   \item \code{\link{get_activity}}
+#'   \item \code{\link{get_activity_zones}}
 #' }
 #' 2.  Athletes
 #' \itemize{

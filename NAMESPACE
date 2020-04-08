@@ -3,6 +3,7 @@
 export(def_initialize)
 export(get_activities)
 export(get_activity)
+export(get_activity_zones)
 export(get_athlete)
 export(get_athlete_stats)
 export(get_athlete_zones)

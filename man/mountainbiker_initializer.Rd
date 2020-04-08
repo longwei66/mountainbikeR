@@ -41,6 +41,7 @@ my_mb <- mountainbiker_initializer$new(
 \item \href{#method-new}{\code{mountainbiker_initializer$new()}}
 \item \href{#method-get_activities}{\code{mountainbiker_initializer$get_activities()}}
 \item \href{#method-get_activity}{\code{mountainbiker_initializer$get_activity()}}
+\item \href{#method-get_activity_zones}{\code{mountainbiker_initializer$get_activity_zones()}}
 \item \href{#method-get_athlete}{\code{mountainbiker_initializer$get_athlete()}}
 \item \href{#method-get_athlete_stats}{\code{mountainbiker_initializer$get_athlete_stats()}}
 \item \href{#method-get_athlete_zones}{\code{mountainbiker_initializer$get_athlete_zones()}}
@@ -141,6 +142,26 @@ https://developers.strava.com/playground/#/Activities/getActivityById
   activity_id = NULL,
   include_all_efforts = FALSE
 )}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{activity_id}}{the strava id of the activity}
+
+\item{\code{include_all_efforts}}{boolean}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_activity_zones"></a>}}
+\if{latex}{\out{\hypertarget{method-get_activity_zones}{}}}
+\subsection{Method \code{get_activity_zones()}}{
+Returns the zones of a given activity.
+https://developers.strava.com/docs/reference/#api-Activities-getZonesByActivityId
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_activity_zones(activity_id = NULL)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{

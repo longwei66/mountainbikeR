@@ -146,7 +146,20 @@ mountainbiker_initializer <- R6::R6Class(
             )
         },
 
-
+        #' @description
+        #' Returns the zones of a given activity.
+        #' https://developers.strava.com/docs/reference/#api-Activities-getZonesByActivityId
+        #'
+        #' @param activity_id the strava id of the activity
+        #' @param include_all_efforts boolean
+        get_activity_zones = function(
+            activity_id = NULL
+        ){
+            environment(def_get_activity_zones) <- environment()
+            def_get_activity_zones(
+                activity_id = activity_id
+            )
+        },
 
 
 
