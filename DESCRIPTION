@@ -1,7 +1,7 @@
 Package: mountainbikeR
 Title: A package for mountainbikers to access and visualise ride data through
     strava API
-Version: 0.0.0.8103
+Version: 0.0.0.8104
 Authors@R: 
     person(given = "Wei",
            family = "Long",
@@ -38,6 +38,7 @@ Collate:
     'R6_get_athelete_zones.R'
     'R6_get_athlete.R'
     'R6_get_gear.R'
+    'R6_get_segment_leaderboard.R'
     'R6_initialize.R'
     'data_stream_types.R'
     'data_workout_types.R'

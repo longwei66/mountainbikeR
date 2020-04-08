@@ -47,6 +47,7 @@ my_mb <- mountainbiker_initializer$new(
 \item \href{#method-get_athlete_zones}{\code{mountainbiker_initializer$get_athlete_zones()}}
 \item \href{#method-get_gear}{\code{mountainbiker_initializer$get_gear()}}
 \item \href{#method-explore_segments}{\code{mountainbiker_initializer$explore_segments()}}
+\item \href{#method-get_segment_leaderboard}{\code{mountainbiker_initializer$get_segment_leaderboard()}}
 \item \href{#method-clone}{\code{mountainbiker_initializer$clone()}}
 }
 }
@@ -265,6 +266,61 @@ following values: running, riding}
 \item{\code{min_climbing_cat}}{int the minimum climbing category}
 
 \item{\code{max_climbing_cat}}{int the maximum climbing category}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_segment_leaderboard"></a>}}
+\if{latex}{\out{\hypertarget{method-get_segment_leaderboard}{}}}
+\subsection{Method \code{get_segment_leaderboard()}}{
+Returns the specified segment leaderboard.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_segment_leaderboard(
+  segment_id = NULL,
+  gender = NULL,
+  age_group = NULL,
+  weight_class = NULL,
+  following = NULL,
+  club_id = NULL,
+  date_range = NULL,
+  context_entries = NULL,
+  page = NULL,
+  per_page = NULL
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{segment_id}}{int The identifier of the segment leaderboard.}
+
+\item{\code{gender}}{string, Filter by gender. May take one of the following
+values: M, F}
+
+\item{\code{age_group}}{string summit Feature. Filter by age group. May
+take one of the following values: 0_19, 20_24, 25_34, 35_44, 45_54,
+55_64, 65_69, 70_74, 75_plus}
+
+\item{\code{weight_class}}{string, filter by weight class. May take one of
+the following values: 0_124, 125_149, 150_164, 165_179, 180_199,
+200_224, 225_249, 250_plus, 0_54, 55_64, 65_74, 75_84, 85_94, 95_104,
+105_114, 115_plus}
+
+\item{\code{following}}{Boolean Filter by friends of the authenticated
+athlete.}
+
+\item{\code{club_id}}{Long,Filter by club id}
+
+\item{\code{date_range}}{string, Filter by date range, will be in the
+athlete's timezone May take one of the following values:
+this_year, this_month, this_week, today}
+
+\item{\code{context_entries}}{Integer, ??? not documented}
+
+\item{\code{page}}{Integer, Page number}
+
+\item{\code{per_page}}{integer, Number of items per page. Defaults to 30.}
 }
 \if{html}{\out{</div>}}
 }

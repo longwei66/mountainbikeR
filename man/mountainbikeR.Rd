@@ -44,6 +44,7 @@ activites, gear, segments
 8.  Segments
 \itemize{
   \item \code{\link{explore_segments}}
+  \item \code{\link{get_segment_leaderboard}}
 }
 
 9.  Streams
