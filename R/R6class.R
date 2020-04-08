@@ -34,6 +34,29 @@ mountainbiker_initializer <- R6::R6Class(
         }
     ),
     public = list(
+
+        ## =====================================================================
+        ##      mountainbikeR strava API methods by group :
+        ##
+        ##      0.  Authentication
+        ##      1.  Activities
+        ##      2.  Athletes
+        ##      3.  Clubs
+        ##      4.  Gears
+        ##      5.  Routes
+        ##      6.  RunningRaces
+        ##      7.  SegmentEfforts
+        ##      8.  Segments
+        ##      9.  Streams
+        ##      10. Uploads
+        ## =====================================================================
+
+
+
+        ## =====================================================================
+        ##      0. Authentication
+        ## =====================================================================
+
         #' @description
         #' Create a new moutainbiker object.
         #'
@@ -75,12 +98,10 @@ mountainbiker_initializer <- R6::R6Class(
 
         },
 
-        #' @description
-        #' Get informations about the athlete
-        get_athlete = function(){
-            environment(def_get_athlete) <- environment()
-            def_get_athlete()
-        },
+
+        ## =====================================================================
+        ##      1. Activities
+        ## =====================================================================
 
         #' @description
         #' List all activities from strava api. Returns the activities of an athlete
@@ -127,6 +148,52 @@ mountainbiker_initializer <- R6::R6Class(
 
 
 
+
+
+        ## =====================================================================
+        ##      2. Athletes
+        ## =====================================================================
+
+
+        #' @description
+        #' Get informations about the athlete
+        get_athlete = function(){
+            environment(def_get_athlete) <- environment()
+            def_get_athlete()
+        },
+
+        #' @description
+        #' Get informations about the athlete stats
+        #' @param athlete_id The identifier of the athlete. Must match the
+        #' authenticated athlete.
+        get_athlete_stats = function(
+            athlete_id = NULL
+        ){
+            environment(def_get_athlete_stats) <- environment()
+            def_get_athlete_stats(
+                athlete_id = athlete_id
+            )
+        },
+
+        #' @description
+        #' Get informations about the athlete heart rate zone
+        get_athlete_zones = function(){
+            environment(def_get_athlete_zones) <- environment()
+            def_get_athlete_zones()
+        },
+
+
+        ## =====================================================================
+        ##      3. Clubs
+        ## =====================================================================
+
+
+
+
+        ## =====================================================================
+        ##      4. Gears
+        ## =====================================================================
+
         #' @description
         #' Get athlete gear description from gear id
         #' @param gear_id the id of the gear to get
@@ -137,6 +204,32 @@ mountainbiker_initializer <- R6::R6Class(
             environment(def_get_gear) <- environment()
             def_get_gear(gear_id = gear_id)
         }
+
+        ## =====================================================================
+        ##      5. Routes
+        ## =====================================================================
+
+        ## =====================================================================
+        ##      6.  RunningRaces
+        ## =====================================================================
+
+        ## =====================================================================
+        ##      7.  SegmentEfforts
+        ## =====================================================================
+
+        ## =====================================================================
+        ##      8.  Segments
+        ## =====================================================================
+
+        ## =====================================================================
+        ##      9.  Streams
+        ## =====================================================================
+
+        ## =====================================================================
+        ##      10. Uploads
+        ## =====================================================================
+
+
     ),
     lock_objects = FALSE
 )

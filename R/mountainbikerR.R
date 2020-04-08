@@ -7,6 +7,39 @@
 #' a set of functions to get your personnal data from strava api, your
 #' activites, gear, segments
 #'
+#' 0. Authentication
+#' \itemize{
+#'   \item \code{\link{mountainbiker_initializer}} to connect to strave api with key an secret
+#' }
+#' 1.  Activities
+#' \itemize{
+#'   \item \code{\link{get_activities}}
+#'   \item \code{\link{get_activity}}
+#' }
+#' 2.  Athletes
+#' \itemize{
+#'   \item \code{\link{get_athele}}
+#'   \item \code{\link{get_athele_stats}}
+#'   \item \code{\link{get_athele_zones}}
+#' }
+#' 3.  Clubs
+#' 4.  Gears
+#' \itemize{
+#'   \item \code{\link{get_gear}}
+#' }
+#'
+#' 5.  Routes
+#'
+#' 6.  RunningRaces
+#'
+#' 7.  SegmentEfforts
+#'
+#' 8.  Segments
+#'
+#' 9.  Streams
+#'
+#' 10. Uploads
+#'
 #' @section Data visualisation functions :
 #' a set of functions to visualise your activities and segment data, plots,
 #' maps, etc...
@@ -20,9 +53,8 @@
 #' single track segments
 #'
 #' @section Main functions
-#' @seealso \code{\link{mountainbiker_initializer}}
-#' @seealso \code{\link{get_activities}}
-#' @seealso \code{\link{get_gear}}
+
+#' @seealso \url{https://developers.strava.com/docs/reference/}
 #'
 #' @docType package
 #' @name mountainbikeR

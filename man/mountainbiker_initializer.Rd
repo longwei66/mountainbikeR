@@ -39,9 +39,11 @@ my_mb <- mountainbiker_initializer$new(
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-new}{\code{mountainbiker_initializer$new()}}
-\item \href{#method-get_athlete}{\code{mountainbiker_initializer$get_athlete()}}
 \item \href{#method-get_activities}{\code{mountainbiker_initializer$get_activities()}}
 \item \href{#method-get_activity}{\code{mountainbiker_initializer$get_activity()}}
+\item \href{#method-get_athlete}{\code{mountainbiker_initializer$get_athlete()}}
+\item \href{#method-get_athlete_stats}{\code{mountainbiker_initializer$get_athlete_stats()}}
+\item \href{#method-get_athlete_zones}{\code{mountainbiker_initializer$get_athlete_zones()}}
 \item \href{#method-get_gear}{\code{mountainbiker_initializer$get_gear()}}
 \item \href{#method-clone}{\code{mountainbiker_initializer$clone()}}
 }
@@ -98,16 +100,6 @@ my_mb <- mountainbiker_initializer$new(
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_athlete"></a>}}
-\if{latex}{\out{\hypertarget{method-get_athlete}{}}}
-\subsection{Method \code{get_athlete()}}{
-Get informations about the athlete
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_athlete()}\if{html}{\out{</div>}}
-}
-
-}
-\if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-get_activities"></a>}}
 \if{latex}{\out{\hypertarget{method-get_activities}{}}}
 \subsection{Method \code{get_activities()}}{
@@ -160,6 +152,44 @@ https://developers.strava.com/playground/#/Activities/getActivityById
 }
 \if{html}{\out{</div>}}
 }
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_athlete"></a>}}
+\if{latex}{\out{\hypertarget{method-get_athlete}{}}}
+\subsection{Method \code{get_athlete()}}{
+Get informations about the athlete
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_athlete()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_athlete_stats"></a>}}
+\if{latex}{\out{\hypertarget{method-get_athlete_stats}{}}}
+\subsection{Method \code{get_athlete_stats()}}{
+Get informations about the athlete stats
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_athlete_stats(athlete_id = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{athlete_id}}{The identifier of the athlete. Must match the
+authenticated athlete.}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_athlete_zones"></a>}}
+\if{latex}{\out{\hypertarget{method-get_athlete_zones}{}}}
+\subsection{Method \code{get_athlete_zones()}}{
+Get informations about the athlete heart rate zone
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_athlete_zones()}\if{html}{\out{</div>}}
+}
+
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-get_gear"></a>}}
