@@ -46,6 +46,7 @@ my_mb <- mountainbiker_initializer$new(
 \item \href{#method-get_athlete_stats}{\code{mountainbiker_initializer$get_athlete_stats()}}
 \item \href{#method-get_athlete_zones}{\code{mountainbiker_initializer$get_athlete_zones()}}
 \item \href{#method-get_gear}{\code{mountainbiker_initializer$get_gear()}}
+\item \href{#method-explore_segments}{\code{mountainbiker_initializer$explore_segments()}}
 \item \href{#method-clone}{\code{mountainbiker_initializer$clone()}}
 }
 }
@@ -225,6 +226,45 @@ Get athlete gear description from gear id
 \if{html}{\out{<div class="arguments">}}
 \describe{
 \item{\code{gear_id}}{the id of the gear to get}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-explore_segments"></a>}}
+\if{latex}{\out{\hypertarget{method-explore_segments}{}}}
+\subsection{Method \code{explore_segments()}}{
+Explore segments returns the top 10 segments matching a specified
+ query based on a bounding box.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$explore_segments(
+  southwest_lat = NULL,
+  southwest_long = NULL,
+  northeast_lat = NULL,
+  northeast_long = NULL,
+  activity_type = NULL,
+  min_climbing_cat = NULL,
+  max_climbing_cat = NULL
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{southwest_lat}}{southwest corner latitutde}
+
+\item{\code{southwest_long}}{southwest corner longitude}
+
+\item{\code{northeast_lat}}{northeast corner latitude}
+
+\item{\code{northeast_long}}{northeast corner longitude}
+
+\item{\code{activity_type}}{Desired activity type. May take one of the
+following values: running, riding}
+
+\item{\code{min_climbing_cat}}{int the minimum climbing category}
+
+\item{\code{max_climbing_cat}}{int the maximum climbing category}
 }
 \if{html}{\out{</div>}}
 }

@@ -26,8 +26,9 @@ https://developers.strava.com/playground/#/Activities/getActivityById
 }
 \examples{
 \dontrun{
-getActivity(
-     token = mytoken,
+# my_mbr is a mountainbikeR object
+
+my_mbr$get_activity(
      activity_id = 12345,
      include_all_efforts = TRUE
 )

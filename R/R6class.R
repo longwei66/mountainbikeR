@@ -216,7 +216,7 @@ mountainbiker_initializer <- R6::R6Class(
 
             environment(def_get_gear) <- environment()
             def_get_gear(gear_id = gear_id)
-        }
+        },
 
         ## =====================================================================
         ##      5. Routes
@@ -233,6 +233,39 @@ mountainbiker_initializer <- R6::R6Class(
         ## =====================================================================
         ##      8.  Segments
         ## =====================================================================
+
+        #' @description
+        #' Explore segments returns the top 10 segments matching a specified
+        #'  query based on a bounding box.
+        #' @param southwest_lat southwest corner latitutde
+        #' @param southwest_long southwest corner longitude
+        #' @param northeast_lat northeast corner latitude
+        #' @param northeast_long northeast corner longitude
+        #' @param activity_type Desired activity type. May take one of the
+        #' following values: running, riding
+        #' @param min_climbing_cat int the minimum climbing category
+        #' @param max_climbing_cat int the maximum climbing category
+        explore_segments = function(
+            southwest_lat = NULL
+            , southwest_long = NULL
+            , northeast_lat = NULL
+            , northeast_long = NULL
+            , activity_type = NULL
+            , min_climbing_cat = NULL
+            , max_climbing_cat = NULL
+        ){
+
+            environment(def_explore_segments) <- environment()
+            def_explore_segments(
+                southwest_lat = southwest_lat
+                , southwest_long = southwest_long
+                , northeast_lat = northeast_lat
+                , northeast_long = northeast_long
+                , activity_type = activity_type
+                , min_climbing_cat = min_climbing_cat
+                , max_climbing_cat = max_climbing_cat
+                )
+        }
 
         ## =====================================================================
         ##      9.  Streams

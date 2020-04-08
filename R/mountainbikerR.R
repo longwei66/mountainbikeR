@@ -36,6 +36,9 @@
 #' 7.  SegmentEfforts
 #'
 #' 8.  Segments
+#' \itemize{
+#'   \item \code{\link{explore_segments}}
+#' }
 #'
 #' 9.  Streams
 #'

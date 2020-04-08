@@ -21,6 +21,7 @@ activites, gear, segments
 \itemize{
   \item \code{\link{get_activities}}
   \item \code{\link{get_activity}}
+  \item \code{\link{get_activity_zones}}
 }
 2.  Athletes
 \itemize{
@@ -41,6 +42,9 @@ activites, gear, segments
 7.  SegmentEfforts
 
 8.  Segments
+\itemize{
+  \item \code{\link{explore_segments}}
+}
 
 9.  Streams
 
