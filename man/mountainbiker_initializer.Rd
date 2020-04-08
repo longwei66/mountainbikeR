@@ -48,6 +48,7 @@ my_mb <- mountainbiker_initializer$new(
 \item \href{#method-get_gear}{\code{mountainbiker_initializer$get_gear()}}
 \item \href{#method-explore_segments}{\code{mountainbiker_initializer$explore_segments()}}
 \item \href{#method-get_segment_leaderboard}{\code{mountainbiker_initializer$get_segment_leaderboard()}}
+\item \href{#method-get_starred_segments}{\code{mountainbiker_initializer$get_starred_segments()}}
 \item \href{#method-clone}{\code{mountainbiker_initializer$clone()}}
 }
 }
@@ -318,6 +319,27 @@ this_year, this_month, this_week, today}
 
 \item{\code{context_entries}}{Integer, ??? not documented}
 
+\item{\code{page}}{Integer, Page number}
+
+\item{\code{per_page}}{integer, Number of items per page. Defaults to 30.}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_starred_segments"></a>}}
+\if{latex}{\out{\hypertarget{method-get_starred_segments}{}}}
+\subsection{Method \code{get_starred_segments()}}{
+List of the authenticated athlete's starred segments. Private
+segments are filtered out unless requested by a token with
+read_all scope.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_starred_segments(page = NULL, per_page = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
 \item{\code{page}}{Integer, Page number}
 
 \item{\code{per_page}}{integer, Number of items per page. Defaults to 30.}

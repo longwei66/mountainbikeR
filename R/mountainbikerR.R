@@ -39,6 +39,7 @@
 #' \itemize{
 #'   \item \code{\link{explore_segments}}
 #'   \item \code{\link{get_segment_leaderboard}}
+#'   \item \code{\link{get_starred_segments}}
 #' }
 #'
 #' 9.  Streams

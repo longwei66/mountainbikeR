@@ -316,8 +316,27 @@ mountainbiker_initializer <- R6::R6Class(
                 , per_page = per_page
 
             )
-        }
+        },
 
+
+        #' @description
+        #' List of the authenticated athlete's starred segments. Private
+        #' segments are filtered out unless requested by a token with
+        #' read_all scope.
+        #' @param page Integer, Page number
+        #' @param per_page integer, Number of items per page. Defaults to 30.
+        get_starred_segments = function(
+            page = NULL
+            , per_page = NULL
+        ){
+
+            environment(def_get_starred_segments) <- environment()
+            def_get_starred_segments(
+                page = page
+                , per_page = per_page
+
+            )
+        }
 
         ## =====================================================================
         ##      9.  Streams
