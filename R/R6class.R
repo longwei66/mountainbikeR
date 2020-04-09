@@ -60,6 +60,31 @@ mountainbiker_initializer <- R6::R6Class(
         #' @description
         #' Create a new moutainbiker object.
         #'
+        #'
+        #' Requested scopes, as a comma delimited string, e.g.
+        #' "activity:read_all,activity:write". Applications should request only the
+        #' scopes required for the application to function normally. The scope
+        #' activity:read is required for activity webhooks.
+        #'
+        #' \itemize{
+        #'    \item read: read public segments, public routes, public profile data,
+        #'    public posts, public events, club feeds, and leaderboards
+        #'    \item read_all:read private routes, private segments, and private events
+        #'    for the' user
+        #'    \item profile:read_all: read all profile information even if the user has
+        #'    set their profile visibility to Followers or Only You
+        #'    \item profile:write: update the user's weight and Functional Threshold
+        #'    Power (FTP), and access to star or unstar segments on their behalf
+        #'    \item activity:read: read the user's activity data for activities that are
+        #'     visible to Everyone and Followers, excluding privacy zone data
+        #'     \item activity:read_all: the same access as activity:read, plus privacy
+        #'     zone data and access to read the user's activities with visibility set to
+        #'     Only You
+        #'     \item activity:write: access to create manual activities and uploads, and
+        #'     access to edit any activities that are visible to the app, based on
+        #'     activity read access level
+        #' }
+        #'
         #' @param my_app_name chr string, the name of the app defined in strava
         #' @param my_client_id chr string, the ID of the app like 27881
         #' @param my_client_secret chr string, the secret as defined in strava
@@ -335,6 +360,21 @@ mountainbiker_initializer <- R6::R6Class(
                 page = page
                 , per_page = per_page
 
+            )
+        },
+
+        #' @description
+        #' Returns the specified segment. read_all scope required in order to
+        #' retrieve athlete-specific segment information, or to retrieve private
+        #' segments.
+        #' @seealso \url{https://developers.strava.com/docs/reference/#api-Segments-getSegmentById}
+        #' @param segment_id the strava id of the segment
+        get_segment = function(
+            segment_id = NULL
+        ){
+            environment(def_get_segment) <- environment()
+            def_get_segment(
+                segment_id = segment_id
             )
         }
 

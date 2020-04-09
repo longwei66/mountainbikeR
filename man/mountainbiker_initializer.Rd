@@ -28,6 +28,9 @@ my_mb <- mountainbiker_initializer$new(
     )
 }
 }
+\seealso{
+\url{https://developers.strava.com/docs/reference/#api-Segments-getSegmentById}
+}
 \section{Active bindings}{
 \if{html}{\out{<div class="r6-active-bindings">}}
 \describe{
@@ -49,6 +52,7 @@ my_mb <- mountainbiker_initializer$new(
 \item \href{#method-explore_segments}{\code{mountainbiker_initializer$explore_segments()}}
 \item \href{#method-get_segment_leaderboard}{\code{mountainbiker_initializer$get_segment_leaderboard()}}
 \item \href{#method-get_starred_segments}{\code{mountainbiker_initializer$get_starred_segments()}}
+\item \href{#method-get_segment}{\code{mountainbiker_initializer$get_segment()}}
 \item \href{#method-clone}{\code{mountainbiker_initializer$clone()}}
 }
 }
@@ -57,6 +61,31 @@ my_mb <- mountainbiker_initializer$new(
 \if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
 Create a new moutainbiker object.
+
+
+Requested scopes, as a comma delimited string, e.g.
+"activity:read_all,activity:write". Applications should request only the
+scopes required for the application to function normally. The scope
+activity:read is required for activity webhooks.
+
+\itemize{
+   \item read: read public segments, public routes, public profile data,
+   public posts, public events, club feeds, and leaderboards
+   \item read_all:read private routes, private segments, and private events
+   for the' user
+   \item profile:read_all: read all profile information even if the user has
+   set their profile visibility to Followers or Only You
+   \item profile:write: update the user's weight and Functional Threshold
+   Power (FTP), and access to star or unstar segments on their behalf
+   \item activity:read: read the user's activity data for activities that are
+    visible to Everyone and Followers, excluding privacy zone data
+    \item activity:read_all: the same access as activity:read, plus privacy
+    zone data and access to read the user's activities with visibility set to
+    Only You
+    \item activity:write: access to create manual activities and uploads, and
+    access to edit any activities that are visible to the app, based on
+    activity read access level
+}
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$new(
   my_app_name = NULL,
@@ -343,6 +372,25 @@ read_all scope.
 \item{\code{page}}{Integer, Page number}
 
 \item{\code{per_page}}{integer, Number of items per page. Defaults to 30.}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_segment"></a>}}
+\if{latex}{\out{\hypertarget{method-get_segment}{}}}
+\subsection{Method \code{get_segment()}}{
+Returns the specified segment. read_all scope required in order to
+retrieve athlete-specific segment information, or to retrieve private
+segments.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_segment(segment_id = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{segment_id}}{the strava id of the segment}
 }
 \if{html}{\out{</div>}}
 }

@@ -1,7 +1,6 @@
 #' def_initialize
 #'
 #' Create authentication token with strava (based on web authentication)
-#'
 #' @param my_app_name chr string, the name of the app defined in strava
 #' @param my_client_id chr string, the ID of the app like 27881
 #' @param my_client_secret chr string, the secret as defined in strava
@@ -15,6 +14,7 @@
 #' @importFrom httr oauth_app oauth_endpoint oauth2.0_token
 #'
 #' @seealso \url{http://developers.strava.com/docs/authentication/}
+#' @seealso \url{https://developers.strava.com/docs/authentication/#detailsaboutrequestingaccess}
 #' @examples
 #' \dontrun{
 #' connect2strava(strava_key = "mykeyhere", strava_secret = "mysecrethere")

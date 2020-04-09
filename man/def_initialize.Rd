@@ -37,4 +37,6 @@ connect2strava(strava_key = "mykeyhere", strava_secret = "mysecrethere")
 }
 \seealso{
 \url{http://developers.strava.com/docs/authentication/}
+
+\url{https://developers.strava.com/docs/authentication/#detailsaboutrequestingaccess}
 }

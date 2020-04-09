@@ -46,6 +46,7 @@ activites, gear, segments
   \item \code{\link{explore_segments}}
   \item \code{\link{get_segment_leaderboard}}
   \item \code{\link{get_starred_segments}}
+  \item \code{\link{get_segment}}
 }
 
 9.  Streams
