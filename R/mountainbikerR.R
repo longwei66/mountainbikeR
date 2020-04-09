@@ -44,7 +44,9 @@
 #' }
 #'
 #' 9.  Streams
-#'
+#' \itemize{
+#'   \item \code{\link{get_activity_streams}}
+#' }
 #' 10. Uploads
 #'
 #' @section Data visualisation functions :

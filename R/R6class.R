@@ -376,11 +376,32 @@ mountainbiker_initializer <- R6::R6Class(
             def_get_segment(
                 segment_id = segment_id
             )
-        }
+        },
 
         ## =====================================================================
         ##      9.  Streams
         ## =====================================================================
+
+        #' @description
+        #' Returns the given activity's streams. Requires activity:read scope.
+        #' Requires activity:read_all scope for Only Me activities.
+        #' @seealso \url{https://developers.strava.com/docs/reference/#api-Streams-getActivityStreams}
+        #' @param activity_id the strava id of the segment
+        #' @param streams_types vector of esired stream types. May take the
+        #' following values:
+        #' "time", "latlng", "distance", "altitude", "velocity_smooth",
+        #' "heartrate", "cadence", "watts", "temp", "moving", "grade_smooth"
+        get_activity_streams = function(
+            activity_id = NULL
+            , streams_types = NULL
+        ){
+            environment(def_get_activity_streams) <- environment()
+            def_get_activity_streams(
+                activity_id = activity_id
+                , streams_types = streams_types
+            )
+        }
+
 
         ## =====================================================================
         ##      10. Uploads

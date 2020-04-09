@@ -30,6 +30,8 @@ my_mb <- mountainbiker_initializer$new(
 }
 \seealso{
 \url{https://developers.strava.com/docs/reference/#api-Segments-getSegmentById}
+
+\url{https://developers.strava.com/docs/reference/#api-Streams-getActivityStreams}
 }
 \section{Active bindings}{
 \if{html}{\out{<div class="r6-active-bindings">}}
@@ -53,6 +55,7 @@ my_mb <- mountainbiker_initializer$new(
 \item \href{#method-get_segment_leaderboard}{\code{mountainbiker_initializer$get_segment_leaderboard()}}
 \item \href{#method-get_starred_segments}{\code{mountainbiker_initializer$get_starred_segments()}}
 \item \href{#method-get_segment}{\code{mountainbiker_initializer$get_segment()}}
+\item \href{#method-get_activity_streams}{\code{mountainbiker_initializer$get_activity_streams()}}
 \item \href{#method-clone}{\code{mountainbiker_initializer$clone()}}
 }
 }
@@ -391,6 +394,32 @@ segments.
 \if{html}{\out{<div class="arguments">}}
 \describe{
 \item{\code{segment_id}}{the strava id of the segment}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_activity_streams"></a>}}
+\if{latex}{\out{\hypertarget{method-get_activity_streams}{}}}
+\subsection{Method \code{get_activity_streams()}}{
+Returns the given activity's streams. Requires activity:read scope.
+Requires activity:read_all scope for Only Me activities.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_activity_streams(
+  activity_id = NULL,
+  streams_types = NULL
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{activity_id}}{the strava id of the segment}
+
+\item{\code{streams_types}}{vector of esired stream types. May take the
+following values:
+"time", "latlng", "distance", "altitude", "velocity_smooth",
+"heartrate", "cadence", "watts", "temp", "moving", "grade_smooth"}
 }
 \if{html}{\out{</div>}}
 }

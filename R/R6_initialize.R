@@ -35,7 +35,7 @@ def_initialize <- function(
 
     #Set as private values
     private$.my_app_name        <- my_app_name
-    private$.my_client_id      <- my_client_id
+    private$.my_client_id       <- my_client_id
     private$.my_client_secret   <- my_client_secret
     private$.my_app_scope       <- my_app_scope
     private$.cache              <- cache
