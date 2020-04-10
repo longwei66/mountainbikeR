@@ -36,6 +36,7 @@
 #' 7.  SegmentEfforts
 #' \itemize{
 #'    \item \code{\link{get_segment_efforts}}
+#'    \item \code{\link{get_segment_effort}}
 #' }
 #'
 #' 8.  Segments

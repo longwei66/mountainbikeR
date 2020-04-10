@@ -278,7 +278,20 @@ mountainbiker_initializer <- R6::R6Class(
             )
         },
 
-
+        #' @description
+        #' Returns a segment effort from an activity that is owned by the
+        #' authenticated athlete.
+        #' @seealso \url{https://developers.strava.com/docs/reference/#api-SegmentEfforts-getSegmentEffortById}
+        #' @seealso \url{https://developers.strava.com/playground/#/SegmentEfforts/getSegmentEffortById}
+        #' @param effort_id the id of the specific effort to collect
+        get_segment_effort = function(
+            effort_id = NULL
+        ){
+            environment(def_get_segment_effort) <- environment()
+            def_get_segment_effort(
+                effort_id = effort_id
+            )
+        },
 
 
         ## =====================================================================

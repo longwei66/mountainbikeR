@@ -35,6 +35,10 @@ my_mb <- mountainbiker_initializer$new(
 
 \url{https://developers.strava.com/playground/#/SegmentEfforts/getEffortsBySegmentId}
 
+\url{https://developers.strava.com/docs/reference/#api-SegmentEfforts-getSegmentEffortById}
+
+\url{https://developers.strava.com/playground/#/SegmentEfforts/getSegmentEffortById}
+
 \url{https://developers.strava.com/docs/reference/#api-Segments-getSegmentById}
 
 \url{https://developers.strava.com/docs/reference/#api-Streams-getActivityStreams}
@@ -60,6 +64,7 @@ my_mb <- mountainbiker_initializer$new(
 \item \href{#method-get_athlete_zones}{\code{mountainbiker_initializer$get_athlete_zones()}}
 \item \href{#method-get_gear}{\code{mountainbiker_initializer$get_gear()}}
 \item \href{#method-get_segment_efforts}{\code{mountainbiker_initializer$get_segment_efforts()}}
+\item \href{#method-get_segment_effort}{\code{mountainbiker_initializer$get_segment_effort()}}
 \item \href{#method-explore_segments}{\code{mountainbiker_initializer$explore_segments()}}
 \item \href{#method-get_segment_leaderboard}{\code{mountainbiker_initializer$get_segment_leaderboard()}}
 \item \href{#method-get_starred_segments}{\code{mountainbiker_initializer$get_starred_segments()}}
@@ -296,6 +301,24 @@ given segment.
 \item{\code{page}}{Page number}
 
 \item{\code{per_page}}{Number of items per page. Defaults to 30.}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_segment_effort"></a>}}
+\if{latex}{\out{\hypertarget{method-get_segment_effort}{}}}
+\subsection{Method \code{get_segment_effort()}}{
+Returns a segment effort from an activity that is owned by the
+authenticated athlete.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_segment_effort(effort_id = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{effort_id}}{the id of the specific effort to collect}
 }
 \if{html}{\out{</div>}}
 }
