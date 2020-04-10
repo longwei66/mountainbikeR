@@ -6,6 +6,8 @@
 #' A mountainbikeR object must be initialized using the new method then
 #' all other method will be availabe
 #'
+#' @seealso \url{https://developers.strava.com/playground}
+#'
 #' @details
 #' TBD
 #' @importFrom R6 R6Class
@@ -255,6 +257,30 @@ mountainbiker_initializer <- R6::R6Class(
         ##      7.  SegmentEfforts
         ## =====================================================================
 
+        #' @description
+        #' Returns a set of the authenticated athlete's segment efforts for a
+        #' given segment.
+        #' @seealso \url{https://developers.strava.com/docs/reference/#api-SegmentEfforts-getEffortsBySegmentId}
+        #' @seealso \url{https://developers.strava.com/playground/#/SegmentEfforts/getEffortsBySegmentId}
+        #' @param segment_id The identifier of the segment.
+        #' @param page Page number
+        #' @param per_page Number of items per page. Defaults to 30.
+        get_segment_efforts = function(
+            segment_id = NULL
+            , page = NULL
+            , per_page = NULL
+        ){
+            environment(def_get_segment_efforts) <- environment()
+            def_get_segment_efforts(
+                segment_id = segment_id
+                , page = page
+                , per_page = per_page
+            )
+        },
+
+
+
+
         ## =====================================================================
         ##      8.  Segments
         ## =====================================================================
@@ -398,6 +424,25 @@ mountainbiker_initializer <- R6::R6Class(
             environment(def_get_activity_streams) <- environment()
             def_get_activity_streams(
                 activity_id = activity_id
+                , streams_types = streams_types
+            )
+        },
+
+        #' @description
+        #' Returns the given segment's streams. Requires read_all scope for
+        #' private segments.
+        #' @seealso \url{https://developers.strava.com/docs/reference/#api-Streams-getSegmentStreams}
+        #' @param segment_id the strava id of the segment
+        #' @param streams_types vector of esired stream types. May take the
+        #' following values:
+        #' "latlng", "distance", "altitude"
+        get_segment_streams = function(
+            segment_id = NULL
+            , streams_types = NULL
+        ){
+            environment(def_get_segment_streams) <- environment()
+            def_get_segment_streams(
+                segment_id = segment_id
                 , streams_types = streams_types
             )
         }

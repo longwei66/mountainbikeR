@@ -34,6 +34,9 @@
 #' 6.  RunningRaces
 #'
 #' 7.  SegmentEfforts
+#' \itemize{
+#'    \item \code{\link{get_segment_efforts}}
+#' }
 #'
 #' 8.  Segments
 #' \itemize{
@@ -46,6 +49,7 @@
 #' 9.  Streams
 #' \itemize{
 #'   \item \code{\link{get_activity_streams}}
+#'   \item \code{\link{get_segment_streams}}
 #' }
 #' 10. Uploads
 #'

@@ -29,9 +29,17 @@ my_mb <- mountainbiker_initializer$new(
 }
 }
 \seealso{
+\url{https://developers.strava.com/playground}
+
+\url{https://developers.strava.com/docs/reference/#api-SegmentEfforts-getEffortsBySegmentId}
+
+\url{https://developers.strava.com/playground/#/SegmentEfforts/getEffortsBySegmentId}
+
 \url{https://developers.strava.com/docs/reference/#api-Segments-getSegmentById}
 
 \url{https://developers.strava.com/docs/reference/#api-Streams-getActivityStreams}
+
+\url{https://developers.strava.com/docs/reference/#api-Streams-getSegmentStreams}
 }
 \section{Active bindings}{
 \if{html}{\out{<div class="r6-active-bindings">}}
@@ -51,11 +59,13 @@ my_mb <- mountainbiker_initializer$new(
 \item \href{#method-get_athlete_stats}{\code{mountainbiker_initializer$get_athlete_stats()}}
 \item \href{#method-get_athlete_zones}{\code{mountainbiker_initializer$get_athlete_zones()}}
 \item \href{#method-get_gear}{\code{mountainbiker_initializer$get_gear()}}
+\item \href{#method-get_segment_efforts}{\code{mountainbiker_initializer$get_segment_efforts()}}
 \item \href{#method-explore_segments}{\code{mountainbiker_initializer$explore_segments()}}
 \item \href{#method-get_segment_leaderboard}{\code{mountainbiker_initializer$get_segment_leaderboard()}}
 \item \href{#method-get_starred_segments}{\code{mountainbiker_initializer$get_starred_segments()}}
 \item \href{#method-get_segment}{\code{mountainbiker_initializer$get_segment()}}
 \item \href{#method-get_activity_streams}{\code{mountainbiker_initializer$get_activity_streams()}}
+\item \href{#method-get_segment_streams}{\code{mountainbiker_initializer$get_segment_streams()}}
 \item \href{#method-clone}{\code{mountainbiker_initializer$clone()}}
 }
 }
@@ -265,6 +275,32 @@ Get athlete gear description from gear id
 }
 }
 \if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_segment_efforts"></a>}}
+\if{latex}{\out{\hypertarget{method-get_segment_efforts}{}}}
+\subsection{Method \code{get_segment_efforts()}}{
+Returns a set of the authenticated athlete's segment efforts for a
+given segment.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_segment_efforts(
+  segment_id = NULL,
+  page = NULL,
+  per_page = NULL
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{segment_id}}{The identifier of the segment.}
+
+\item{\code{page}}{Page number}
+
+\item{\code{per_page}}{Number of items per page. Defaults to 30.}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-explore_segments"></a>}}
 \if{latex}{\out{\hypertarget{method-explore_segments}{}}}
 \subsection{Method \code{explore_segments()}}{
@@ -420,6 +456,31 @@ Requires activity:read_all scope for Only Me activities.
 following values:
 "time", "latlng", "distance", "altitude", "velocity_smooth",
 "heartrate", "cadence", "watts", "temp", "moving", "grade_smooth"}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_segment_streams"></a>}}
+\if{latex}{\out{\hypertarget{method-get_segment_streams}{}}}
+\subsection{Method \code{get_segment_streams()}}{
+Returns the given segment's streams. Requires read_all scope for
+private segments.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_segment_streams(
+  segment_id = NULL,
+  streams_types = NULL
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{segment_id}}{the strava id of the segment}
+
+\item{\code{streams_types}}{vector of esired stream types. May take the
+following values:
+"latlng", "distance", "altitude"}
 }
 \if{html}{\out{</div>}}
 }
