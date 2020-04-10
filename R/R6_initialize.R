@@ -1,11 +1,11 @@
 #' def_initialize
 #'
 #' Create authentication token with strava (based on web authentication)
-#'
 #' @param my_app_name chr string, the name of the app defined in strava
 #' @param my_client_id chr string, the ID of the app like 27881
 #' @param my_client_secret chr string, the secret as defined in strava
 #' @param my_app_scope chr string for requested scopes, as a comma delimited
+#' @param cache logical, TRUE to have local cache of the token, FALSE not
 #' string, e.g. "activity:read_all,activity:write"
 #'
 #'
@@ -14,6 +14,7 @@
 #' @importFrom httr oauth_app oauth_endpoint oauth2.0_token
 #'
 #' @seealso \url{http://developers.strava.com/docs/authentication/}
+#' @seealso \url{https://developers.strava.com/docs/authentication/#detailsaboutrequestingaccess}
 #' @examples
 #' \dontrun{
 #' connect2strava(strava_key = "mykeyhere", strava_secret = "mysecrethere")
@@ -34,7 +35,7 @@ def_initialize <- function(
 
     #Set as private values
     private$.my_app_name        <- my_app_name
-    private$.my_client_id      <- my_client_id
+    private$.my_client_id       <- my_client_id
     private$.my_client_secret   <- my_client_secret
     private$.my_app_scope       <- my_app_scope
     private$.cache              <- cache
@@ -67,7 +68,7 @@ def_initialize <- function(
         , scope = private$.my_app_scope
         , cache = private$.cache
         )
-    private$.connexion_statut <- TRUE
+    private$.connexion_status <- TRUE
     message("Token sucessfully generated ! You can retreive the value using 'token' method of your object.")
 
 }

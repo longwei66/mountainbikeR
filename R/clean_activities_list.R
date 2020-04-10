@@ -1,11 +1,10 @@
-#' cleanActivitiesList
+#' clean_activities_list
 #'
-#' a function to clean strava actities
+#' a function to clean strava actities list returned from strava API
 #'
-#' @param activities json activities returnd by getActivities
+#' @param activities json activities returnd by get_activities
 #'
 #' @return activities of the page
-#' @export
 #' @importFrom dplyr select %>%
 #' @importFrom data.table rbindlist as.data.table
 #' @importFrom rlang .data
@@ -14,9 +13,9 @@
 #'
 #' @examples
 #' \dontrun{
-#' cleanActivities(my_activities)
+#' clean_activities_list(my_activities)
 #' }
-cleanActivitiesList <- function(activities = NULL){
+clean_activities_list <- function(activities = NULL){
 
     ## test input
     if(is.null(activities)){ stop("activities cannot be NULL")}
@@ -29,16 +28,24 @@ cleanActivitiesList <- function(activities = NULL){
     ## clean activities.
     ## ------------------
     ## deal with nested data.frame start_latlng
-    start_latlng <- data.table::rbindlist(lapply(activities$start_latlng, as.data.frame.list), fill = TRUE)
-    end_latlng <- data.table::rbindlist(lapply(activities$end_latlng, as.data.frame.list), fill = TRUE)
+    start_latlng <- data.table::rbindlist(
+        lapply(activities$start_latlng, as.data.frame.list)
+        , fill = TRUE
+    )
+    end_latlng <- data.table::rbindlist(
+        lapply(activities$end_latlng, as.data.frame.list)
+        , fill = TRUE
+    )
     map <- activities$map$summary_polyline
 
     ## Remove non necessary features
     activities <- activities %>% select(
-                                -.data$start_latlng, -.data$end_latlng,
-                                -.data$map, -.data$resource_state, -.data$athlete,
-                                -.data$location_city, -.data$location_state,
-                                -.data$location_country, -.data$from_accepted_tag)
+        -.data$start_latlng, -.data$end_latlng
+        , -.data$map
+        #, -.data$resource_state, -.data$athlete,
+        #-.data$location_city, -.data$location_state,
+        #-.data$location_country, -.data$from_accepted_tag
+    )
 
     ## Convert to data.table
     activities <- data.table::as.data.table(activities)
@@ -59,20 +66,20 @@ cleanActivitiesList <- function(activities = NULL){
     activities <- activities %>% dplyr::select(-.data$start_latitude,
                                                -.data$start_longitude)
 
-
     ## Add workout types
     workout_type = workout_type_id = NULL
 
-    activities[ , workout_type_id := workout_type]
-    activities <- activities %>% dplyr::select(-.data$workout_type)
+    #activities[ , workout_type_id := workout_type]
+    activities <- activities %>%
+        dplyr::rename(workout_type_id = .data$workout_type)
 
     activities <- merge(
         x = activities, y = mountainbikeR::workout_types,
         by.x = "workout_type_id", by.y = "workout_type_id", all.x = TRUE)
+    if( length(is.na(activities$workout_type)) > 0 ){
+        activities[ is.na(workout_type), workout_type := "unknown"]
+    }
 
-
-    ## Add gear name
-    #activities[ , gear.name := unlist(lapply(activities$gear.id, getGearName, myGearList))]
 
     ## Convert Dates
     start_date = start_date_local = NULL

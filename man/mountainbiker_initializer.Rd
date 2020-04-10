@@ -28,6 +28,25 @@ my_mb <- mountainbiker_initializer$new(
     )
 }
 }
+\seealso{
+\url{https://developers.strava.com/playground}
+
+\url{https://developers.strava.com/docs/reference/#api-SegmentEfforts-getEffortsBySegmentId}
+
+\url{https://developers.strava.com/playground/#/SegmentEfforts/getEffortsBySegmentId}
+
+\url{https://developers.strava.com/docs/reference/#api-SegmentEfforts-getSegmentEffortById}
+
+\url{https://developers.strava.com/playground/#/SegmentEfforts/getSegmentEffortById}
+
+\url{https://developers.strava.com/docs/reference/#api-Segments-getSegmentById}
+
+\url{https://developers.strava.com/docs/reference/#api-Streams-getActivityStreams}
+
+\url{https://developers.strava.com/docs/reference/#api-Streams-getSegmentEffortStreams}
+
+\url{https://developers.strava.com/docs/reference/#api-Streams-getSegmentStreams}
+}
 \section{Active bindings}{
 \if{html}{\out{<div class="r6-active-bindings">}}
 \describe{
@@ -39,6 +58,22 @@ my_mb <- mountainbiker_initializer$new(
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-new}{\code{mountainbiker_initializer$new()}}
+\item \href{#method-get_activities}{\code{mountainbiker_initializer$get_activities()}}
+\item \href{#method-get_activity}{\code{mountainbiker_initializer$get_activity()}}
+\item \href{#method-get_activity_zones}{\code{mountainbiker_initializer$get_activity_zones()}}
+\item \href{#method-get_athlete}{\code{mountainbiker_initializer$get_athlete()}}
+\item \href{#method-get_athlete_stats}{\code{mountainbiker_initializer$get_athlete_stats()}}
+\item \href{#method-get_athlete_zones}{\code{mountainbiker_initializer$get_athlete_zones()}}
+\item \href{#method-get_gear}{\code{mountainbiker_initializer$get_gear()}}
+\item \href{#method-get_segment_efforts}{\code{mountainbiker_initializer$get_segment_efforts()}}
+\item \href{#method-get_segment_effort}{\code{mountainbiker_initializer$get_segment_effort()}}
+\item \href{#method-explore_segments}{\code{mountainbiker_initializer$explore_segments()}}
+\item \href{#method-get_segment_leaderboard}{\code{mountainbiker_initializer$get_segment_leaderboard()}}
+\item \href{#method-get_starred_segments}{\code{mountainbiker_initializer$get_starred_segments()}}
+\item \href{#method-get_segment}{\code{mountainbiker_initializer$get_segment()}}
+\item \href{#method-get_activity_streams}{\code{mountainbiker_initializer$get_activity_streams()}}
+\item \href{#method-get_segment_effort_streams}{\code{mountainbiker_initializer$get_segment_effort_streams()}}
+\item \href{#method-get_segment_streams}{\code{mountainbiker_initializer$get_segment_streams()}}
 \item \href{#method-clone}{\code{mountainbiker_initializer$clone()}}
 }
 }
@@ -47,6 +82,31 @@ my_mb <- mountainbiker_initializer$new(
 \if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
 Create a new moutainbiker object.
+
+
+Requested scopes, as a comma delimited string, e.g.
+"activity:read_all,activity:write". Applications should request only the
+scopes required for the application to function normally. The scope
+activity:read is required for activity webhooks.
+
+\itemize{
+   \item read: read public segments, public routes, public profile data,
+   public posts, public events, club feeds, and leaderboards
+   \item read_all:read private routes, private segments, and private events
+   for the' user
+   \item profile:read_all: read all profile information even if the user has
+   set their profile visibility to Followers or Only You
+   \item profile:write: update the user's weight and Functional Threshold
+   Power (FTP), and access to star or unstar segments on their behalf
+   \item activity:read: read the user's activity data for activities that are
+    visible to Everyone and Followers, excluding privacy zone data
+    \item activity:read_all: the same access as activity:read, plus privacy
+    zone data and access to read the user's activities with visibility set to
+    Only You
+    \item activity:write: access to create manual activities and uploads, and
+    access to edit any activities that are visible to the app, based on
+    activity read access level
+}
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$new(
   my_app_name = NULL,
@@ -92,6 +152,390 @@ my_mb <- mountainbiker_initializer$new(
 
 }
 
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_activities"></a>}}
+\if{latex}{\out{\hypertarget{method-get_activities}{}}}
+\subsection{Method \code{get_activities()}}{
+List all activities from strava api. Returns the activities of an athlete
+for a specific identifier. Requires activity:read.
+Only Me activities will be filtered out unless requested by a token
+with activity:read_all.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_activities(
+  activities_per_page = 200,
+  page_number = 1,
+  after_date = NULL,
+  before_date = NULL
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{activities_per_page}}{max number of item to return (must be 200 max)}
+
+\item{\code{page_number}}{the specific page number to extract}
+
+\item{\code{after_date}}{return activities after date as YYYY-MM-DD}
+
+\item{\code{before_date}}{return activities before date as YYYY-MM-DD}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_activity"></a>}}
+\if{latex}{\out{\hypertarget{method-get_activity}{}}}
+\subsection{Method \code{get_activity()}}{
+Returns the given activity that is owned by the authenticated athlete.
+https://developers.strava.com/playground/#/Activities/getActivityById
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_activity(
+  activity_id = NULL,
+  include_all_efforts = FALSE
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{activity_id}}{the strava id of the activity}
+
+\item{\code{include_all_efforts}}{boolean}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_activity_zones"></a>}}
+\if{latex}{\out{\hypertarget{method-get_activity_zones}{}}}
+\subsection{Method \code{get_activity_zones()}}{
+Returns the zones of a given activity.
+https://developers.strava.com/docs/reference/#api-Activities-getZonesByActivityId
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_activity_zones(activity_id = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{activity_id}}{the strava id of the activity}
+
+\item{\code{include_all_efforts}}{boolean}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_athlete"></a>}}
+\if{latex}{\out{\hypertarget{method-get_athlete}{}}}
+\subsection{Method \code{get_athlete()}}{
+Get informations about the athlete
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_athlete()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_athlete_stats"></a>}}
+\if{latex}{\out{\hypertarget{method-get_athlete_stats}{}}}
+\subsection{Method \code{get_athlete_stats()}}{
+Get informations about the athlete stats
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_athlete_stats(athlete_id = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{athlete_id}}{The identifier of the athlete. Must match the
+authenticated athlete.}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_athlete_zones"></a>}}
+\if{latex}{\out{\hypertarget{method-get_athlete_zones}{}}}
+\subsection{Method \code{get_athlete_zones()}}{
+Get informations about the athlete heart rate zone
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_athlete_zones()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_gear"></a>}}
+\if{latex}{\out{\hypertarget{method-get_gear}{}}}
+\subsection{Method \code{get_gear()}}{
+Get athlete gear description from gear id
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_gear(gear_id = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{gear_id}}{the id of the gear to get}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_segment_efforts"></a>}}
+\if{latex}{\out{\hypertarget{method-get_segment_efforts}{}}}
+\subsection{Method \code{get_segment_efforts()}}{
+Returns a set of the authenticated athlete's segment efforts for a
+given segment.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_segment_efforts(
+  segment_id = NULL,
+  page = NULL,
+  per_page = NULL
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{segment_id}}{The identifier of the segment.}
+
+\item{\code{page}}{Page number}
+
+\item{\code{per_page}}{Number of items per page. Defaults to 30.}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_segment_effort"></a>}}
+\if{latex}{\out{\hypertarget{method-get_segment_effort}{}}}
+\subsection{Method \code{get_segment_effort()}}{
+Returns a segment effort from an activity that is owned by the
+authenticated athlete.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_segment_effort(effort_id = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{effort_id}}{the id of the specific effort to collect}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-explore_segments"></a>}}
+\if{latex}{\out{\hypertarget{method-explore_segments}{}}}
+\subsection{Method \code{explore_segments()}}{
+Explore segments returns the top 10 segments matching a specified
+ query based on a bounding box.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$explore_segments(
+  southwest_lat = NULL,
+  southwest_long = NULL,
+  northeast_lat = NULL,
+  northeast_long = NULL,
+  activity_type = NULL,
+  min_climbing_cat = NULL,
+  max_climbing_cat = NULL
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{southwest_lat}}{southwest corner latitutde}
+
+\item{\code{southwest_long}}{southwest corner longitude}
+
+\item{\code{northeast_lat}}{northeast corner latitude}
+
+\item{\code{northeast_long}}{northeast corner longitude}
+
+\item{\code{activity_type}}{Desired activity type. May take one of the
+following values: running, riding}
+
+\item{\code{min_climbing_cat}}{int the minimum climbing category}
+
+\item{\code{max_climbing_cat}}{int the maximum climbing category}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_segment_leaderboard"></a>}}
+\if{latex}{\out{\hypertarget{method-get_segment_leaderboard}{}}}
+\subsection{Method \code{get_segment_leaderboard()}}{
+Returns the specified segment leaderboard.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_segment_leaderboard(
+  segment_id = NULL,
+  gender = NULL,
+  age_group = NULL,
+  weight_class = NULL,
+  following = NULL,
+  club_id = NULL,
+  date_range = NULL,
+  context_entries = NULL,
+  page = NULL,
+  per_page = NULL
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{segment_id}}{int The identifier of the segment leaderboard.}
+
+\item{\code{gender}}{string, Filter by gender. May take one of the following
+values: M, F}
+
+\item{\code{age_group}}{string summit Feature. Filter by age group. May
+take one of the following values: 0_19, 20_24, 25_34, 35_44, 45_54,
+55_64, 65_69, 70_74, 75_plus}
+
+\item{\code{weight_class}}{string, filter by weight class. May take one of
+the following values: 0_124, 125_149, 150_164, 165_179, 180_199,
+200_224, 225_249, 250_plus, 0_54, 55_64, 65_74, 75_84, 85_94, 95_104,
+105_114, 115_plus}
+
+\item{\code{following}}{Boolean Filter by friends of the authenticated
+athlete.}
+
+\item{\code{club_id}}{Long,Filter by club id}
+
+\item{\code{date_range}}{string, Filter by date range, will be in the
+athlete's timezone May take one of the following values:
+this_year, this_month, this_week, today}
+
+\item{\code{context_entries}}{Integer, ??? not documented}
+
+\item{\code{page}}{Integer, Page number}
+
+\item{\code{per_page}}{integer, Number of items per page. Defaults to 30.}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_starred_segments"></a>}}
+\if{latex}{\out{\hypertarget{method-get_starred_segments}{}}}
+\subsection{Method \code{get_starred_segments()}}{
+List of the authenticated athlete's starred segments. Private
+segments are filtered out unless requested by a token with
+read_all scope.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_starred_segments(page = NULL, per_page = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{page}}{Integer, Page number}
+
+\item{\code{per_page}}{integer, Number of items per page. Defaults to 30.}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_segment"></a>}}
+\if{latex}{\out{\hypertarget{method-get_segment}{}}}
+\subsection{Method \code{get_segment()}}{
+Returns the specified segment. read_all scope required in order to
+retrieve athlete-specific segment information, or to retrieve private
+segments.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_segment(segment_id = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{segment_id}}{the strava id of the segment}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_activity_streams"></a>}}
+\if{latex}{\out{\hypertarget{method-get_activity_streams}{}}}
+\subsection{Method \code{get_activity_streams()}}{
+Returns the given activity's streams. Requires activity:read scope.
+Requires activity:read_all scope for Only Me activities.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_activity_streams(
+  activity_id = NULL,
+  streams_types = NULL
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{activity_id}}{the strava id of the segment}
+
+\item{\code{streams_types}}{vector of esired stream types. May take the
+following values:
+"time", "latlng", "distance", "altitude", "velocity_smooth",
+"heartrate", "cadence", "watts", "temp", "moving", "grade_smooth"}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_segment_effort_streams"></a>}}
+\if{latex}{\out{\hypertarget{method-get_segment_effort_streams}{}}}
+\subsection{Method \code{get_segment_effort_streams()}}{
+Returns a set of streams for a segment effort completed by the
+authenticated athlete. Requires read_all scope.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_segment_effort_streams(
+  effort_id = NULL,
+  streams_types = NULL
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{effort_id}}{The identifier of the segment effort.}
+
+\item{\code{streams_types}}{vector of esired stream types. May take the
+following values:
+"time", "latlng", "distance", "altitude", "velocity_smooth",
+"heartrate", "cadence", "watts", "temp", "moving", "grade_smooth"}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_segment_streams"></a>}}
+\if{latex}{\out{\hypertarget{method-get_segment_streams}{}}}
+\subsection{Method \code{get_segment_streams()}}{
+Returns the given segment's streams. Requires read_all scope for
+private segments.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_segment_streams(
+  segment_id = NULL,
+  streams_types = NULL
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{segment_id}}{the strava id of the segment}
+
+\item{\code{streams_types}}{vector of esired stream types. May take the
+following values:
+"latlng", "distance", "altitude"}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}

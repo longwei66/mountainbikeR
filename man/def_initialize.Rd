@@ -19,7 +19,9 @@ def_initialize(
 
 \item{my_client_secret}{chr string, the secret as defined in strava}
 
-\item{my_app_scope}{chr string for requested scopes, as a comma delimited
+\item{my_app_scope}{chr string for requested scopes, as a comma delimited}
+
+\item{cache}{logical, TRUE to have local cache of the token, FALSE not
 string, e.g. "activity:read_all,activity:write"}
 }
 \value{
@@ -35,4 +37,6 @@ connect2strava(strava_key = "mykeyhere", strava_secret = "mysecrethere")
 }
 \seealso{
 \url{http://developers.strava.com/docs/authentication/}
+
+\url{https://developers.strava.com/docs/authentication/#detailsaboutrequestingaccess}
 }

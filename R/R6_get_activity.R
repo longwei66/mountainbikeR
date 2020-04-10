@@ -1,9 +1,9 @@
-#' getActivity
+#' get_activity
 #'
 #' Returns the given activity that is owned by the authenticated athlete.
 #' https://developers.strava.com/playground/#/Activities/getActivityById
 #'
-#' @param token the strava token
+#' @param mbr_object a mountainbiker object
 #' @param activity_id the strava id of the activity
 #' @param include_all_efforts boolean
 #' @importFrom httr GET status_code content http_status
@@ -14,26 +14,51 @@
 #'
 #' @examples
 #' \dontrun{
-#' getActivity(
-#'      token = mytoken,
+#' # my_mbr is a mountainbikeR object
+#'
+#' my_mbr$get_activity(
 #'      activity_id = 12345,
 #'      include_all_efforts = TRUE
 #' )
 #' }
-getActivity <- function( token = NULL,
-                         activity_id = NULL,
-                         include_all_efforts = FALSE){
+get_activity <- function(
+    mbr_object = NULL
+    , activity_id = NULL
+    , include_all_efforts = FALSE
+){
+    mrb_object$get_activity(
+        activity_id = activity_id
+        , include_all_efforts = include_all_efforts
+    )
+    invisible()
+}
+
+
+
+
+def_get_activity <- function(
+    activity_id = NULL
+    , include_all_efforts = FALSE
+    ){
 
     ## test input
-    if(is.null(token)){ stop("token cannot be NULL")}
-    if(is.null(activity_id)){ stop("activity_id cannot be NULL")}
-    if(!is.logical(include_all_efforts)){ stop("include_all_efforts must be TRUE or FALSE")}
+    if(is.null(private$.token)){
+        stop("token cannot be NULL")
+    }
+    if(is.null(activity_id)){
+        stop("activity_id cannot be NULL")
+        }
+    if(!is.logical(include_all_efforts)){
+        stop("include_all_efforts must be TRUE or FALSE")
+        }
 
     ## Call strave API - getActivityById
     myActivity <- httr::GET("https://www.strava.com/",
                             path = paste0("api/v3/activities/", activity_id),
-                      query = list(access_token = token,
-                                   include_all_efforts = include_all_efforts)
+                      query = list(
+                          access_token = private$.token$credentials$access_token
+                          , include_all_efforts = include_all_efforts
+                          )
                       )
 
 

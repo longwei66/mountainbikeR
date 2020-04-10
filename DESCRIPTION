@@ -1,7 +1,7 @@
 Package: mountainbikeR
 Title: A package for mountainbikers to access and visualise ride data through
     strava API
-Version: 0.0.0.8000
+Version: 0.0.0.8112
 Authors@R: 
     person(given = "Wei",
            family = "Long",
@@ -14,6 +14,7 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.0
 Imports:
+    R6,
     data.table,
     dplyr,
     httr,
@@ -22,5 +23,31 @@ Imports:
     anytime,
     rlang
 Suggests: 
-    testthat
+    testthat,
+    knitr,
+    rmarkdown
 Collate: 
+    'R6class.R'
+    'R6_active.R'
+    'R6_explore_segments.R'
+    'clean_activities_list.R'
+    'R6_get_activities.R'
+    'R6_get_activity.R'
+    'R6_get_activity_streams.R'
+    'R6_get_activity_zones.R'
+    'R6_get_athelete_stats.R'
+    'R6_get_athelete_zones.R'
+    'R6_get_athlete.R'
+    'R6_get_gear.R'
+    'R6_get_segment.R'
+    'R6_get_segment_effort.R'
+    'R6_get_segment_effort_streams.R'
+    'R6_get_segment_efforts.R'
+    'R6_get_segment_leaderboard.R'
+    'R6_get_segment_streams.R'
+    'R6_get_starred_segments.R'
+    'R6_initialize.R'
+    'data_stream_types.R'
+    'data_workout_types.R'
+    'mountainbikerR.R'
+VignetteBuilder: knitr

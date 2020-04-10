@@ -1,8 +1,11 @@
-#'def_token
+#' def_token
+#'
+#' @include R6class.R
+#'
 def_token <- function(){
-    if(private$.connexion_statut == TRUE){
+    if(private$.connexion_status == TRUE){
         private$.token
-    }else{
+    } else {
         stop("Token haven't been generated !", call. = FALSE)
     }
 }
