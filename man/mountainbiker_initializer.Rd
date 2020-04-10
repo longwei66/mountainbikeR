@@ -43,6 +43,8 @@ my_mb <- mountainbiker_initializer$new(
 
 \url{https://developers.strava.com/docs/reference/#api-Streams-getActivityStreams}
 
+\url{https://developers.strava.com/docs/reference/#api-Streams-getSegmentEffortStreams}
+
 \url{https://developers.strava.com/docs/reference/#api-Streams-getSegmentStreams}
 }
 \section{Active bindings}{
@@ -70,6 +72,7 @@ my_mb <- mountainbiker_initializer$new(
 \item \href{#method-get_starred_segments}{\code{mountainbiker_initializer$get_starred_segments()}}
 \item \href{#method-get_segment}{\code{mountainbiker_initializer$get_segment()}}
 \item \href{#method-get_activity_streams}{\code{mountainbiker_initializer$get_activity_streams()}}
+\item \href{#method-get_segment_effort_streams}{\code{mountainbiker_initializer$get_segment_effort_streams()}}
 \item \href{#method-get_segment_streams}{\code{mountainbiker_initializer$get_segment_streams()}}
 \item \href{#method-clone}{\code{mountainbiker_initializer$clone()}}
 }
@@ -474,6 +477,32 @@ Requires activity:read_all scope for Only Me activities.
 \if{html}{\out{<div class="arguments">}}
 \describe{
 \item{\code{activity_id}}{the strava id of the segment}
+
+\item{\code{streams_types}}{vector of esired stream types. May take the
+following values:
+"time", "latlng", "distance", "altitude", "velocity_smooth",
+"heartrate", "cadence", "watts", "temp", "moving", "grade_smooth"}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_segment_effort_streams"></a>}}
+\if{latex}{\out{\hypertarget{method-get_segment_effort_streams}{}}}
+\subsection{Method \code{get_segment_effort_streams()}}{
+Returns a set of streams for a segment effort completed by the
+authenticated athlete. Requires read_all scope.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{mountainbiker_initializer$get_segment_effort_streams(
+  effort_id = NULL,
+  streams_types = NULL
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{effort_id}}{The identifier of the segment effort.}
 
 \item{\code{streams_types}}{vector of esired stream types. May take the
 following values:

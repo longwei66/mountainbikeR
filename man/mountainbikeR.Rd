@@ -56,6 +56,7 @@ activites, gear, segments
 9.  Streams
 \itemize{
   \item \code{\link{get_activity_streams}}
+  \item \code{\link{get_segment_effort_streams}}
   \item \code{\link{get_segment_streams}}
 }
 10. Uploads

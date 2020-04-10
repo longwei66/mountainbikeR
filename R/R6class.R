@@ -442,6 +442,26 @@ mountainbiker_initializer <- R6::R6Class(
         },
 
         #' @description
+        #' Returns a set of streams for a segment effort completed by the
+        #' authenticated athlete. Requires read_all scope.
+        #' @seealso \url{https://developers.strava.com/docs/reference/#api-Streams-getSegmentEffortStreams}
+        #' @param effort_id The identifier of the segment effort.
+        #' @param streams_types vector of esired stream types. May take the
+        #' following values:
+        #' "time", "latlng", "distance", "altitude", "velocity_smooth",
+        #' "heartrate", "cadence", "watts", "temp", "moving", "grade_smooth"
+        get_segment_effort_streams = function(
+            effort_id = NULL
+            , streams_types = NULL
+        ){
+            environment(def_get_segment_effort_streams) <- environment()
+            def_get_segment_effort_streams(
+                effort_id = effort_id
+                , streams_types = streams_types
+            )
+        },
+
+        #' @description
         #' Returns the given segment's streams. Requires read_all scope for
         #' private segments.
         #' @seealso \url{https://developers.strava.com/docs/reference/#api-Streams-getSegmentStreams}
