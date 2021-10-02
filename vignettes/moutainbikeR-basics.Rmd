@@ -62,10 +62,24 @@ some_activities_2 <- my_mbr$get_activities(
   , page_number = 2
   #, after_date = "2018-01-01"
     )
+some_activities_3 <- my_mbr$get_activities(
+  activities_per_page = 200
+  , page_number = 3
+  #, after_date = "2018-01-01"
+    )
+some_activities_4 <- my_mbr$get_activities(
+  activities_per_page = 200
+  , page_number = 4
+  #, after_date = "2018-01-01"
+    )
+
 
 some_activities <-rbind(
   some_activities_1
   , some_activities_2
+  , some_activities_3
+  , some_activities_4
+  , fill = TRUE
   )
 
 # Fields available
@@ -78,6 +92,7 @@ head(some_activities$type)
 ```
 
 ```{r}
+some_activities$year <- lubridate::year(some_activities$start_date)
 library(ggplot2)
 g <- ggplot(data = some_activities[ type %in% c("Ride", "Run")])
 g <- g + geom_point(
@@ -94,4 +109,22 @@ g <- g + scale_color_gradient(low = "green", high = "red", na.value = "grey")
 g <- g + facet_grid(facets = . ~ type , scales = "free_x")
 g
 ```
+
+# Get on activity
+
+```{r}
+activity_id <- "6050578290"
+
+my_activity <- my_mbr$get_activity(
+  activity_id = activity_id
+  , include_all_efforts = TRUE
+  )
+
+```
+
+```{r}
+my_activity_stream_lag_long <- my_mbr$get_activity_streams(activity_id = activity_id, streams_types = c("latlng"))
+```
+
+
 
